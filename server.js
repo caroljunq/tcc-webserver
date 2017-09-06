@@ -1,19 +1,12 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
+const path = require('path');
 const app = express();
 
 app.use(fileUpload());
 
 app.get('/', function (req, res) {
-  res.send(`
-      <html>
-         <body>
-            <form ref='uploadForm'id='uploadForm'action='/' method='post'encType="multipart/form-data">
-                <input type="file" name="sampleFile" />
-                <input type='submit' value='Upload!' />
-            </form>
-        </body>
-      </html>`);
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/', function(req, res) {
@@ -33,5 +26,5 @@ app.post('/', function(req, res) {
 });
 
 app.listen(3000, function () {
-  console.log('Listen on 3000!')
+  console.log('Listening on 3000!')
 })
