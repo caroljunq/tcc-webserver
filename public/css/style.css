@@ -1,0 +1,33 @@
+
+body{
+    color: white;
+}
+.container{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
+
+form{
+    background-color: #37474F;
+    padding: 100px;
+    border-radius: 17px;
+}
+textarea{
+    resize: none;
+}
+
+.form-group label{
+    width: 100%;
+}
+
+#submit{
+    margin-top: 30px;
+    width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}

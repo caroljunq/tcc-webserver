@@ -6,10 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>GSMART</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href='main.css' rel='stylesheet'>
+        <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        <div class="container">To aqui</div>
+        <div class="container">
+            <form class="col-md-6">
+                <div class="form-group">
+                    <label for="textbox">File Name</label>
+                    <textarea class="form-control" id="textbox" rows="1"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="textbox">File Input</label>
+                    <label class="btn btn-danger">Choose a file <input type="file" hidden></label>
+                </div>
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>

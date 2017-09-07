@@ -1,0 +1,12 @@
+.container{
+    margin-top: 70px;
+}
+
+form .form-group{
+    margin: 15px;
+}
+
+textarea{
+    resize: none;
+    width: 30%;
+}
