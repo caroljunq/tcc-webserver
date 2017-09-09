@@ -3,7 +3,7 @@ body{
     background: powderblue;
 }
 
-.container{
+.input-box{
     display: flex;
     justify-content: center;
     align-items: center;
