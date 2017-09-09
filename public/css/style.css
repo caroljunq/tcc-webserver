@@ -36,3 +36,13 @@ textarea{
     margin-top: 40px;
     font-size: 30px;
 }
+
+.graph{
+    margin-top: 100px;
+}
+
+.graphs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
