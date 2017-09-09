@@ -72,15 +72,11 @@ function drawBasic() {
 
         const options = {
             title: 'Vendors',
-            width: 800,
-            height: 600,
             backgroundColor: '#E4E4E4'
         };
 
         const options2 = {
             title: 'People Traffic',
-            width: 800,
-            height: 600,
             backgroundColor: '#E4E4E4'
         };
         let chart1 = new google.visualization.PieChart(document.getElementById('pie_graph'));

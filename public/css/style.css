@@ -38,11 +38,7 @@ textarea{
 }
 
 .graph{
+    width: 100%;
+    min-height: 450px;
     margin-top: 100px;
-}
-
-.graphs{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
