@@ -12,7 +12,7 @@ fetch(
 )
 .then(res => res.text())
 .then(fileText =>
-    fileText
+    console.log(fileText
         .split(/\n/)
         .filter(v => v.length > 0 )
         .map(line => line.split('-'))
@@ -20,7 +20,7 @@ fetch(
                 mac: register[0],
                 timestamp: new Date(register[1])
 
-        }))
+        })));
 ).then((array) => { mydata = array});
 
 const mydata1 = [
