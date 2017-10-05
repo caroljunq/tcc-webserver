@@ -1,0 +1,15 @@
+<div class="col-lg-2">
+					<div class="card">
+						<div class="card-body row">
+							<div class="col-xs-5">
+							<div class="icon-big icon-warning text-center">
+              	<i class="ti-server"></i>
+              </div>
+							</div>
+							<div class="col-xs-7">
+								<h6 class="card-title">Traffic Peak</h6>
+								<h4 class="card-subtitle mb-2">100</h4>
+							</div>
+						</div>
+					<i class="fa fa-5x fa-bell-o"></i></div>
+				</div>		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

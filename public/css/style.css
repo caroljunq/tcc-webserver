@@ -46,6 +46,7 @@ footer{
 /* statistics.ejs */
 .card{
     box-shadow: 0 5px 5px 0 rgba(0,0,0,.25);
+    margin: .5rem;
 }
 
 .card-title{
@@ -54,4 +55,26 @@ footer{
 
 .card-subtitle{
     color:#666;
+}
+
+.row > .card{
+    margin: 1rem;
+}
+
+.cards-info > .row{
+    margin-top: 31px;
+}
+
+h3{
+    float: left;
+    margin-right: 100px;
+    margin-left: 10px;
+}
+
+.top-statistics{
+    margin-top: 20px;
+}
+
+.day-selection{
+    font-size: 20px;
 }
