@@ -1,5 +1,9 @@
 
 /* elementos comuns */
+.container-fluid{
+    padding-top: 70px;
+}
+
 footer{
     background-color: #e9ecef; 
     height: 50px;
@@ -40,9 +44,22 @@ footer{
 /* comparing.ejs */
 
 /* statistics.ejs */
-
-/* apagueme */
-p{
-    margin-top: 57px;
+.card{
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,.25);
 }
 
+.card-title{
+    color:rgba(102, 102, 102, .6);
+}
+
+.card-subtitle{
+    color:#666;
+}
+
+.card-img-left {
+    border-bottom-left-radius: calc(.25rem - 1px);
+    border-top-left-radius: calc(.25rem - 1px);
+    float: left;
+    padding-right: 1em;
+    margin-bottom: -1.25em;
+  }
