@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GSMART</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <div class='navbar navbar-inverse navbar-fixed-top'>
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand">GSMART</a>
+                    <button type='button' class="navbar-toggle" data-toggle='collapse' data-target='.navbar-collapse'>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                    </button>
+                </div>
+                <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+                    <li><a href="/">Files</a></li>
+                    <li><a href="graphs.html">Graphs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container input-box">
+            <form class="col-md-6" method='post' encType="multipart/form-data">
+                <div class="form-group">
+                    <label>File Name</label>
+                    <label class="form-control" id="textbox" rows="1"></label>
+                </div>
+                <div class="form-group">
+                    <label>File Input</label>
+                    <label class="btn btn-danger">Choose a file <input type="file" hidden name="sampleFile"></label>
+                </div>
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                <label id="feedback"></label>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="/js/index.js"></script>
+    </body>
+</html>

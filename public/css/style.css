@@ -1,44 +1,44 @@
-body{
-    color: white;
-    background: powderblue;
-}
 
-.input-box{
+/* elementos comuns */
+footer{
+    background-color: #e9ecef; 
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 800px;
 }
 
-form{
-    background-color: #37474F;
-    padding: 100px;
-    border-radius: 17px;
-}
-textarea{
-    resize: none;
+/* index.ejs */
+
+/* zones.ejs */
+.zones{
+    background-color: #b0e0e6;
+    width: 100vw;
+    height: 100vh;
 }
 
-.form-group label{
-    width: 100%;
+.zones-selection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-flow: column;
 }
 
-#submit{
-    margin-top: 30px;
-    width: 100%;
+.zones-selection > select{
+    font-size: 20px;
+    height: 51px;
+    margin-bottom: 25px;
+    box-shadow: 4px 3px 4px #888888;
 }
 
-[hidden] {
-  display: none !important;
+.zones-selection > button{
+    height: 44px;
+    box-shadow: 4px 3px 4px #888888;
 }
 
-#feedback{
-    margin-top: 40px;
-    font-size: 30px;
-}
+/* comparing.ejs */
 
-.graph{
-    width: 100%;
-    min-height: 450px;
-    margin-top: 100px;
-}
+/* statistics.ejs */
+
+

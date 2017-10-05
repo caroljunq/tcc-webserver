@@ -1,0 +1,22 @@
+[
+    {
+        "vendor": "Apple",
+        "total": 220
+    },
+    {
+        "vendor": "Motorola",
+        "total": 150
+    },
+    {
+        "vendor": "Lenovo",
+        "total": 40
+    },
+    {
+        "vendor": "Apple",
+        "total": 220
+    },
+    {
+        "vendor": "Outros",
+        "total": 100
+    }
+]

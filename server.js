@@ -4,12 +4,28 @@ const path = require('path');
 const app = express();
 
 app.use(fileUpload());
+app.use('/public', express.static(__dirname + '/public'));
+app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + '/public'));
+app.get('/', (req, res) => {
+  // render `index.ejs` with the list of posts
+  res.render('index')
+})
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
-});
+app.get('/zones', (req, res) => {
+  // render `zones.ejs` with the list of posts
+  res.render('zones')
+})
+
+app.get('/comparing', (req, res) => {
+  // render `comparing.ejs` with the list of posts
+  res.render('comparing')
+})
+
+app.get('/statistics', (req, res) => {
+  // render `statistics.ejs` with the list of posts
+  res.render('statistics')
+})
 
 app.post('/', function(req, res) {
   if (!req.files)
