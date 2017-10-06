@@ -41,6 +41,17 @@ footer{
     box-shadow: 4px 3px 4px #888888;
 }
 
+.btn-get-statistics{
+    background-color: #dc9f35;
+    border-color: #dc9f35;
+    color: white;
+}
+
+.btn-get-statistics:hover{
+    background-color:  #BA862B;
+    border-color:  #BA862B;
+}
+
 /* comparing.ejs */
 
 /* statistics.ejs */
