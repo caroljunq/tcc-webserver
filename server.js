@@ -12,6 +12,9 @@ app.use(fileUpload());
 
 app.use('/public', express.static(__dirname + '/public'));
 
+// me tire daqui assim que possível, acho que não precisa servir estático
+app.use('/controllers', express.static(__dirname + '/app/controllers'));
+
 app.post('/', function(req, res) {
   if (!req.files)
     return res.status(400).send('No files were uploaded.');
