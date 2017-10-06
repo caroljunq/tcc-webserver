@@ -5,6 +5,7 @@ const app = express();
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
 
+app.set('views',  './app/views');
 app.set('view engine', 'ejs');
 
 app.use(fileUpload());
