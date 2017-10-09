@@ -1,5 +1,9 @@
 
 /* elementos comuns */
+body{
+    height: 100vh;
+}
+
 .container-fluid{
     padding-top: 70px;
     height: 100vh;
@@ -18,7 +22,9 @@ footer{
 .zones{
     background-color: #b0e0e6;
     width: 100vw;
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -26,7 +32,6 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     flex-flow: column;
 }
 
@@ -92,10 +97,6 @@ h3{
 }
 
 .charts{
-  margin-top: 57px;
-  margin-left: 10px;
+  margin-top: 30px;
 }
 
-.area-chart{
-  margin: 0 auto;
-}
