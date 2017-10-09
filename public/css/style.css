@@ -14,6 +14,8 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -34px;
+    height: 34px;
 }
 
 /* index.ejs */
@@ -21,7 +23,6 @@ footer{
 /* zones.ejs */
 .zones{
     background-color: #b0e0e6;
-    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
