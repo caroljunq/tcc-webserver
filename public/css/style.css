@@ -60,6 +60,9 @@ footer{
 }
 
 /* comparing.ejs */
+.area-content{
+    margin: 0 auto;
+}
 
 /* statistics.ejs */
 .card{

@@ -9,7 +9,7 @@ var data = [
       { y: '20:00', a: 115, b: 75}
     ],
     config = {
-      element: "area-example",
+      element: "area-chart",
       data: data,
       xkey: 'y',
       ykeys: ['a', 'b'],
