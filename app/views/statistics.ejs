@@ -16,11 +16,11 @@
 		<div class="container-fluid">
 
 			<div class="top-statistics">
-				<h3><%= zoneSelected %></h3>
+				<h3><%= obj.zone %></h3>
 				<div class="col-md-offset-3"></div>
 				<select class="day-selection custom-select">
 					<option selected>Select a period</option>
-					<% days.forEach(function(day) { %>
+					<% obj.days.forEach(function(day) { %>
         	<option><%= day %></option>
     			<% }); %>
 				</select>
@@ -35,7 +35,7 @@
 									<i class="fa fa-bar-chart-o"></i>
 									Traffic Average
 								</h6>
-								<h4 class="card-subtitle mb-2"><%= dayAverage %></h4>
+								<h4 class="card-subtitle mb-2"><%= obj.dayAverage %></h4>
 							</div>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 									<i class="fa fa-arrow-up"></i>
 									Traffic Peak
 								</h6>
-								<h4 class="card-subtitle mb-2"><%= peak %></h4>
+								<h4 class="card-subtitle mb-2"><%= obj.peak %></h4>
 							</div>
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 									<i class="fa fa-child"></i>
 									Total Traffic
 								</h6>
-								<h4 class="card-subtitle mb-2"><%= totalPeople %></h4>
+								<h4 class="card-subtitle mb-2"><%= obj.totalPeople %></h4>
 							</div>
 						</div>
 					</div>
@@ -68,7 +68,7 @@
 									<i class="fa fa-star"></i>
 									Vendor
 								</h6>
-								<h4 class="card-subtitle mb-2"><%= vendor %></h4>
+								<h4 class="card-subtitle mb-2"><%= obj.vendor %></h4>
 							</div>
 						</div>
 					</div>
@@ -79,7 +79,7 @@
 									<i class="fa fa-sign-in"></i>
 									New visits
 								</h6>
-								<h4 class="card-subtitle mb-2"><%= visitors %></h4>
+								<h4 class="card-subtitle mb-2"><%= obj.visitors %></h4>
 							</div>
 						</div>
 					</div>
@@ -90,7 +90,7 @@
 									<i class="fa fa-database"></i>
 									Customers
 								</h6>
-								<h4 class="card-subtitle mb-2"><%= customers %></h4>
+								<h4 class="card-subtitle mb-2"><%= obj.customers %></h4>
 							</div>
 						</div>
 					</div>
