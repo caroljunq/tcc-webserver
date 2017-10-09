@@ -24,7 +24,6 @@
 //   };
 // Morris.Area(config);
 
-
 new Chart(document.getElementById("area-chart"), {
   type: 'line',
   data: {
