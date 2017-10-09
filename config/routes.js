@@ -10,13 +10,13 @@ module.exports = function(app) {
         arrayPie: [45,56,85,77,10]
     }
     
-    // blog home page
-    app.get('/', (req, res) => {
-        // render `index.ejs` with the list of posts
-        res.render('index')
-    })
+    // // blog home page
+    // app.get('/', (req, res) => {
+    //     // render `index.ejs` with the list of posts
+    //     res.render('zones')
+    // })
 
-    app.get('/zones', (req, res) => {
+    app.get('/', (req, res) => {
         // render `zones.ejs` with the list of posts
         res.render('zones')
     })
