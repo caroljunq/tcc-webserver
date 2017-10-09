@@ -19,7 +19,7 @@ function drawLineChart(array){
     }
   }); 
 }
-
+// https://emn178.github.io/Chart.PieceLabel.js/samples/demo/ --> tipos de labeçs
 function drawPieChart(array){
   new Chart(document.getElementById("pie-chart"), {
     type: 'pie',
@@ -35,6 +35,19 @@ function drawPieChart(array){
         display: true,
         text: 'Vendors',
         fontSize: 18
+      },
+      pieceLabel: {
+        render: 'percentage',
+        fontColor: ['green', 'white', 'red'],
+        precision: 2,
+        fontColor: '#FFFFFF',
+        fontSize: 14
+      },
+      legend: {
+        labels: {
+            // This more specific font property overrides the global property
+            fontSize: 14
+        } 
       }
     }
   });
