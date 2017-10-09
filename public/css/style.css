@@ -22,7 +22,7 @@ footer{
 
 /* zones.ejs */
 .zones{
-    background-color: #b0e0e6;
+    background-color: #2196F3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,18 +34,31 @@ footer{
     align-items: center;
     justify-content: center;
     flex-flow: column;
+    background: #fff;
+    max-width: 350px;
+    width: 350px;
+    border-radius: 4px;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 .zones-selection > select{
     font-size: 20px;
-    height: 51px;
-    margin-bottom: 25px;
-    box-shadow: 4px 3px 4px #888888;
+    border: 0;
+    width: 100%;
+    padding: 15px;
+    height: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px 8px 0 0;
 }
 
 .zones-selection > button{
-    height: 44px;
-    box-shadow: 4px 3px 4px #888888;
+    padding: 15px;
+    width: 100%;
+    border-radius: 0 0 4px 4px;
+    background: rgba(53, 59, 64, 0.91);
+    border: 0;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .btn-get-statistics{
@@ -55,8 +68,7 @@ footer{
 }
 
 .btn-get-statistics:hover{
-    background-color:  #BA862B;
-    border-color:  #BA862B;
+    background-color: rgba(0, 0, 0, 0.55);
 }
 
 /* comparing.ejs */
@@ -104,3 +116,8 @@ h3{
   margin-top: 30px;
 }
 
+/* .bg-dark{
+    background-color: #2296f3 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+    padding: 15px;
+} */
