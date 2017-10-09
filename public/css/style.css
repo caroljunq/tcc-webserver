@@ -5,7 +5,7 @@
 }
 
 footer{
-    background-color: #e9ecef; 
+    background-color: #e9ecef;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -88,4 +88,9 @@ h3{
 
 .day-selection{
     font-size: 20px;
+}
+
+.charts{
+  margin-top: 57px;
+  margin-left: 10px;
 }
