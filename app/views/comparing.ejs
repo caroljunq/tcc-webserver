@@ -7,15 +7,21 @@
 		<title>GSMART</title>
 		<link rel="stylesheet" href="/public/css/bootstrap.css">
 		<link rel="stylesheet" href="/public/css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 	</head>
 	<body>
 		<%- include('partials/navbar') %>
 		<div class="container-fluid">
-			<p>Comparing</p>
+			<div class="col-lg-6 area-chart">
+				<div id="area-example"></div>
+			</div>
 		</div>
 		<%- include('partials/footer') %>
 		<script src="/public/js/jquery-3.2.1.min.js"></script>
 		<script src="/public/js/popper.min.js"></script>
 		<script src="/public/js/bootstrap.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.js"></script>
+		<script src="/controllers/comparing.js"></script>
 	</body>
 </html>

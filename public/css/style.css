@@ -21,6 +21,7 @@ footer{
     height: 100vh;
 }
 
+
 .zones-selection{
     display: flex;
     align-items: center;
@@ -93,4 +94,8 @@ h3{
 .charts{
   margin-top: 57px;
   margin-left: 10px;
+}
+
+.area-chart{
+  margin: 0 auto;
 }
