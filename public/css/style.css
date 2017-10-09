@@ -2,6 +2,7 @@
 /* elementos comuns */
 .container-fluid{
     padding-top: 70px;
+    height: 100vh;
 }
 
 footer{
