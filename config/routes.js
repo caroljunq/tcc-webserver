@@ -33,4 +33,12 @@ module.exports = function(app) {
         res.render('statistics', {obj: teste}) 
     })
 
+   app.get('/consulta', function(req, res) {
+        var db = require("./db");
+        var Scans = db.Mongoose.model('scans', db.ScanSchema, 'scans');
+        Scans.find({}).lean().exec(
+           function (e, docs) {
+              res.send(docs);
+        });
+     });
 }
