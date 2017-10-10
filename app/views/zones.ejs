@@ -11,14 +11,14 @@
 	<body>
 		<%- include('partials/navbar') %>
 		<div class="container-fluid zones">
-			<div class="zones-selection">
-				<select class="custom-select">
+			<form method="get" class="zones-selection">
+				<select name="select-zone" class="custom-select" onchange="selectedZone(this)">
 					<option selected>Select a zone</option>
-					<option value="ltia">LTIA Unesp</option>
-					<option value="camflam">Camflam Bauru</option>
+					<option value="LTIA">LTIA Unesp</option>
+					<option value="Camflam">Camflam Bauru</option>
 				</select>
-				<button type="button" class="btn btn-get-statistics" style="display:block">Get statistics!</button>
-			</div>
+				<button type="submit" class="btn btn-get-statistics" style="display:block">Get statistics!</button>
+			</form>
 		</div>
 		<%- include('partials/footer') %>
 		<script src="/public/js/jquery-3.2.1.min.js"></script>

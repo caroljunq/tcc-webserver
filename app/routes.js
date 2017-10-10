@@ -38,7 +38,7 @@ module.exports = function(app) {
        let zone = req.params.zone;
         Scans.find({'zone':zone}).lean().exec(
            function (e, docs) {
-              res.send(docs);
+            res.send(docs);
         });
      });
 }
