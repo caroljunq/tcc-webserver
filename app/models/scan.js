@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://teste:teste123@ds113825.mlab.com:13825/gsmart");
 
 let scanSchema = new mongoose.Schema({
   day: String,
@@ -8,6 +7,4 @@ let scanSchema = new mongoose.Schema({
   macs: Array
 }, { collection: 'scans' });
 
-module.exports = { 
-  Mongoose: mongoose, 
-  ScanSchema: scanSchema }
+module.exports = mongoose.model('ScanSchema',scanSchema);

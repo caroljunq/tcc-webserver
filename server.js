@@ -3,7 +3,7 @@ const fileUpload = require('express-fileupload');
 const app = express();
 
 // routes ==================================================
-require('./config/routes')(app); // configure our routes
+require('./app/routes')(app); // configure our routes
 
 app.set('views',  './app/views');
 app.set('view engine', 'ejs');
@@ -15,22 +15,20 @@ app.use('/public', express.static(__dirname + '/public'));
 // me tire daqui assim que possível, acho que não precisa servir estático
 app.use('/controllers', express.static(__dirname + '/app/controllers'));
 
-app.post('/', function(req, res) {
-  if (!req.files)
-    return res.status(400).send('No files were uploaded.');
 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  let sampleFile = req.files.sampleFile;
+// app.post('/', function(req, res) {
+//   if (!req.files)
+//     return res.status(400).send('No files were uploaded.');
 
-  // Use the mv() method to place the file somewhere on your server
-  // let today = new Date();
-  // let date = today.getDate() +"-" + (today.getMonth()+1)+ "-" + today.getFullYear()+ "_"+ today.getHours()+ "-" + today.getMinutes()+ "-" + today.getSeconds();
+//   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+//   let sampleFile = req.files.sampleFile;
 
-  sampleFile.mv(sampleFile.name, function(err) {
-    if (err)
-      return res.status(500).send(err);
-  });
-});
+//   // Use the mv() method to place the file somewhere on your server
+//   sampleFile.mv(sampleFile.name, function(err) {
+//     if (err)
+//       return res.status(500).send(err);
+//   });
+// });
 
 app.listen(3000, function () {
   console.log('Listening on 3000!')

@@ -1,3 +1,6 @@
+const db = require("./db");
+const Scans = require('./models/scan');
+
 module.exports = function(app) {
 
     let teste = {
@@ -26,17 +29,14 @@ module.exports = function(app) {
         res.render('comparing')
     })
 
-    app.get('/statistics', (req, res) => {
-            // render `statistics.ejs` with the list of posts
-        
-        teste.arrayLine[0]+= 10;
-        res.render('statistics', {obj: teste}) 
-    })
+    // app.get('/statistics', (req, res) => {
+    //     // render `statistics.ejs` with the list of posts
+    //     res.render('statistics', {obj: teste}) 
+    // })
 
-   app.get('/consulta', function(req, res) {
-        var db = require("./db");
-        var Scans = db.Mongoose.model('scans', db.ScanSchema, 'scans');
-        Scans.find({}).lean().exec(
+   app.get('/statistics/:zone', function(req, res) {
+       let zone = req.params.zone;
+        Scans.find({'zone':zone}).lean().exec(
            function (e, docs) {
               res.send(docs);
         });
