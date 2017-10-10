@@ -29,16 +29,21 @@ module.exports = function(app) {
         res.render('comparing')
     })
 
-    // app.get('/statistics', (req, res) => {
-    //     // render `statistics.ejs` with the list of posts
-    //     res.render('statistics', {obj: teste}) 
-    // })
+    app.get('/statistics', (req, res) => {
+        // render `statistics.ejs` with the list of posts
+        res.render('statistics', {obj: teste}) 
+    })
 
    app.get('/statistics/:zone', function(req, res) {
        let zone = req.params.zone;
         Scans.find({'zone':zone}).lean().exec(
-           function (e, docs) {
-            res.send(docs);
+           function (err, docs) {
+            if(!err){
+                res.send(docs);
+            }else{
+                console.log("Error! " + err.message);
+                return err;
+            }
         });
      });
 }
