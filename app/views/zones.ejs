@@ -11,9 +11,9 @@
 	<body>
 		<%- include('partials/navbar') %>
 		<div class="container-fluid zones">
-			<form method="get" class="zones-selection">
+			<span class="title-select">Select a zone:</span>
+			<form method="get" class="zones-selection" action="/statistics/LTIA">
 				<select name="select-zone" class="custom-select" onchange="selectedZone(this)">
-					<option selected>Select a zone</option>
 					<option value="LTIA">LTIA Unesp</option>
 					<option value="Camflam">Camflam Bauru</option>
 				</select>

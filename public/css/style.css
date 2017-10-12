@@ -26,8 +26,8 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
-
 
 .zones-selection{
     display: flex;
@@ -69,6 +69,14 @@ footer{
 
 .btn-get-statistics:hover{
     background-color: rgba(0, 0, 0, 0.55);
+}
+
+.title-select{
+    max-width: 350px;
+    width: 350px;
+    margin-bottom: 7px;
+    font-size: 23px;
+    color: white;
 }
 
 /* comparing.ejs */
