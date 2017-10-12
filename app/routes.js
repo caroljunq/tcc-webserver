@@ -1,5 +1,6 @@
 const db = require("./db");
 const Scans = require('./models/scan');
+const getdata = require('./models/datamining')
 
 module.exports = function(app) {
 
@@ -55,11 +56,11 @@ module.exports = function(app) {
          let month = req.params.month;
          let year = req.params.year;
          let period = year+'-'+month+'-'+day;
-         console.log(zone + period);
-          Scans.find({'zone':zone,'day':period}).lean().exec(
+          Scans.find({'zone':zone}).lean().exec(
              function (err, docs) {
               if(!err){
-                  res.send(docs);
+                  let obj = getdata('2017-10-25',docs);
+                  console.log(obj);
               }else{
                   console.log("Error! " + err.message);
                   return err;
