@@ -4,15 +4,17 @@ const Scans = require('./models/scan');
 module.exports = function(app) {
 
     let teste = {
-        zone: 'Zone1', 
-        peak: 50, visitors: 80, 
-        customers: 20, totalPeople: 100, 
-        vendor: 'Apple', dayAverage: 35, 
-        days: ['24/10/17','25/10/17','26/10/17','27/10/17','28/10/17'],
+        zone: 'LTIA',
+        peak: 50, visitors: 80,
+        customers: 20,
+        totalPeople: 100,
+        vendor: 'Apple',
+        dayAverage: 35,
+        days: ['23/10/2017','24/10/2017','25/10/2017','26/10/2017','27/10/2017'],
         arrayLine: [45,56,14,23,32,42,20],
         arrayPie: [45,56,85,77,10]
     }
-    
+
     // // blog home page
     // app.get('/', (req, res) => {
     //     // render `index.ejs` with the list of posts
@@ -31,7 +33,7 @@ module.exports = function(app) {
 
     app.get('/statistics', (req, res) => {
         // render `statistics.ejs` with the list of posts
-        res.render('statistics', {obj: teste}) 
+        res.render('statistics', {obj: teste})
     })
 
    app.get('/statistics/:zone', function(req, res) {
@@ -46,4 +48,22 @@ module.exports = function(app) {
             }
         });
      });
+
+     app.get('/statistics/:zone/:day/:month/:year', function(req, res) {
+         let zone = req.params.zone;
+         let day = req.params.day;
+         let month = req.params.month;
+         let year = req.params.year;
+         let period = year+'-'+month+'-'+day;
+         console.log(zone + period);
+          Scans.find({'zone':zone,'day':period}).lean().exec(
+             function (err, docs) {
+              if(!err){
+                  res.send(docs);
+              }else{
+                  console.log("Error! " + err.message);
+                  return err;
+              }
+          });
+       });
 }

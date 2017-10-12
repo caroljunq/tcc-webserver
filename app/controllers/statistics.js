@@ -1,3 +1,10 @@
+let selectedDay = (sel,zone) =>{
+  let option = sel.options[sel.selectedIndex];
+  let form = document.querySelector('.day-selection');
+  form.action = '/statistics/'+ zone +"/"+ option.value;
+  form.submit();
+}
+
 function drawLineChart(array){
   new Chart(document.getElementById("line-chart"), {
     type: 'line',
@@ -17,7 +24,7 @@ function drawLineChart(array){
         fontSize: 18
       }
     }
-  }); 
+  });
 }
 // https://emn178.github.io/Chart.PieceLabel.js/samples/demo/ --> tipos de labeçs
 function drawPieChart(array){
@@ -47,7 +54,7 @@ function drawPieChart(array){
         labels: {
             // This more specific font property overrides the global property
             fontSize: 14
-        } 
+        }
       }
     }
   });

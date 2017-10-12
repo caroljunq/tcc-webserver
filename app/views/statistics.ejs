@@ -18,12 +18,13 @@
 			<div class="top-statistics">
 				<h3><%= obj.zone %></h3>
 				<div class="col-md-offset-3"></div>
-				<select class="day-selection custom-select">
-					<option selected>Select a period</option>
-					<% obj.days.forEach(function(day) { %>
-        	<option><%= day %></option>
-    			<% }); %>
-				</select>
+				<form class="day-selection" method="get">
+					<select onchange="selectedDay(this,'<%- obj.zone.toString() %>')" class="day-selection custom-select">
+						<% obj.days.forEach(function(day) { %>
+	        	<option value="<%= day %>"><%= day %></option>
+	    			<% }); %>
+					</select>
+				</form>
 			</div>
 			<!--Cards info -->
 			<div class="cards-info">
@@ -103,14 +104,14 @@
 						<div class="card-body">
 							<canvas id="line-chart"></canvas>
 						</div>
-					</div>		
+					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="card">
 						<div class="card-body">
 							<canvas id="pie-chart"></canvas>
 						</div>
-					</div>		
+					</div>
 				</div>
 			</div>
 		</div>
