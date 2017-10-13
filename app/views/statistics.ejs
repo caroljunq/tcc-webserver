@@ -127,7 +127,9 @@
 			let label = <%- JSON.stringify(obj.arrayLineLabels) %>;
 			let data2 = <%- JSON.stringify(obj.arrayPie) %>;
 			let label2 = <%- JSON.stringify(obj.arrayPieLabels) %>;
-			drawLineChart(data,label);
+			let day = <%- JSON.stringify(obj.daySelected) %>;
+			let date = day.split('-');
+			drawLineChart(data,label,date[2]+"/"+date[1]);
 			drawPieChart(data2,label2);
 		</script>
 	</body>

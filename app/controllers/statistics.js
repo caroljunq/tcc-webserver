@@ -1,19 +1,19 @@
 let selectedDay = (sel,zone) =>{
   let option = sel.options[sel.selectedIndex];
   let form = document.querySelector('.day-selection');
-  form.action = '/statistics/'+ zone +"/"+ option.value;
+  let date = option.value.split('-');
+  form.action = '/statistics/'+ zone +"/"+ date[0]+"/"+date[1]+"/"+date[2];
   form.submit();
 }
 
-function drawLineChart(array,label){
-  console.log(label);
+function drawLineChart(array,label,daySelected){
   new Chart(document.getElementById("line-chart"), {
     type: 'line',
     data: {
       labels: label,
       datasets: [{
           data: array,
-          label: '24/10',
+          label: daySelected,
           borderColor: "#3e95cd",
           fill: false
         }]

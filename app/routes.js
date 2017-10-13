@@ -27,18 +27,19 @@ module.exports = function(app) {
 
    app.get('/statistics/:zone', function(req, res) {
        let zone = req.params.zone;
-        Scans.find({'zone':zone}).lean().exec(
-           function (err, docs) {
-            if(!err){
-                res.send(docs);
-            }else{
-                console.log("Error! " + err.message);
-                return err;
-            }
-        });
+       Scans.find({'zone':zone}).lean().exec(
+          function (err, docs) {
+           if(!err){
+               let obj = getdata("",docs);
+               res.render('statistics', {obj: obj})
+           }else{
+               console.log("Error! " + err.message);
+               return err;
+           }
+       });
      });
 
-     app.get('/statistics/:zone/:day/:month/:year', function(req, res) {
+     app.get('/statistics/:zone/:year/:month/:day', function(req, res) {
          let zone = req.params.zone;
          let day = req.params.day;
          let month = req.params.month;
