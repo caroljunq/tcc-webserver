@@ -85,18 +85,21 @@ module.exports = getData = (period,data) => {
             }
         }
 
-        vendors.sort();
-        for(i = 0; i < vendors.length; i++) {
-            if ( vendors[i] !== prev ) {
-                this.arrayPieLabels.push(vendors[i]);
-                this.arrayPie.push(1);
-            }else{
-                this.arrayPie[this.arrayPie.length-1]++;
-            }
-            prev = vendors[i];
+        let map = vendors.reduce((prev, cur) => {
+            prev[cur] = (prev[cur] || 0) + 1;
+            return prev;
+        }, {});
+
+        var sortable = [];
+        for (var vendor in map) {
+            sortable.push([vendor, map[vendor]]);
         }
 
-        // reduceTop5(this.arrayPie,this.arrayPieLabels);
+        sortable.sort(function(a, b) {
+            return b[1] - a[1];
+        });
+
+        reduceTop5(this.arrayPie,this.arrayPieLabels,sortable);
 
         return this;
     }
