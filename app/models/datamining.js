@@ -5,10 +5,14 @@ module.exports = getData = (period,data) => {
 
     //If period is empty/not sent
     if(period == ""){
-        for(i = 1; i < data.length; i++)
-            if(data[i-1].day < data[i].day)
-                period = data[i-1].day;
+        period = data[0].day;
+
+        for(i = 1; i < data.length; i++){
+            if(data[i].day < period)
+                period = data[i].day;
+        }
     }
+
     //Get registers from one date
     registers = data.filter((elem,i,data) => {
         return data[i].day == period;
@@ -25,6 +29,7 @@ module.exports = getData = (period,data) => {
 
     //Sort registers from one day by hour
     registers.sort(sortRegisters);
+
 
     //Get days in a zone
     getDays = () =>{
@@ -78,7 +83,7 @@ module.exports = getData = (period,data) => {
         this.arrayPieLabels = [];
         this.vendors = [];
         let vendors = [];
-        let prev;
+
         for(i = 0; i < registers.length; i++){
             for(j = 0; j < registers[i].macs.length; j++){
                 vendors.push(registers[i].macs[j].vendor);
@@ -90,8 +95,10 @@ module.exports = getData = (period,data) => {
             return prev;
         }, {});
 
-        var sortable = [];
-        for (var vendor in map) {
+
+
+        let sortable = [];
+        for(let vendor in map) {
             sortable.push([vendor, map[vendor]]);
         }
 
@@ -102,6 +109,22 @@ module.exports = getData = (period,data) => {
         reduceTop5(this.arrayPie,this.arrayPieLabels,sortable);
 
         return this;
+    }
+
+    reduceTop5 = (numbers,labels,arraySort) =>{
+        let sum = 0;
+        arraySort.sort((a,b) => {return b[1]-a[1]});
+        for(i = 0 ; i < arraySort.length; i++){
+            if(i < 5){
+                labels.push(arraySort[i][0]);
+                numbers.push(arraySort[i][1]);
+            }else{
+                sum += arraySort[i][1];
+            }
+        }
+
+        labels.push("outros");
+        numbers.push(sum);
     }
 
     let values = getValues();
@@ -119,7 +142,7 @@ module.exports = getData = (period,data) => {
       visitors: people.visitors,
       customers: people.customers,
       arrayPie: vendor.arrayPie,
-      arrayPieLabels: vendor.arrayPieLabels
-      //   vendor: 'Empty',
+      arrayPieLabels: vendor.arrayPieLabels,
+      vendor: vendor.arrayPieLabels[0]
   }
 }
