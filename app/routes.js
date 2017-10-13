@@ -59,8 +59,8 @@ module.exports = function(app) {
           Scans.find({'zone':zone}).lean().exec(
              function (err, docs) {
               if(!err){
-                  let obj = getdata('2017-10-25',docs);
-                  console.log(obj);
+                  let obj = getdata("2017-10-24",docs);
+                  res.send(obj);
               }else{
                   console.log("Error! " + err.message);
                   return err;
