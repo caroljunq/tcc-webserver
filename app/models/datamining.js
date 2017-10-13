@@ -23,26 +23,16 @@ module.exports = getData = (period,data) => {
         return 0;
     }
 
-    //Sort elements generic
-    sortElements = (a,b) => {
-        if (a < b)
-            return -1;
-        if (a > b)
-            return 1;
-        return 0;
-    }
-
     //Sort registers from one day by hour
     registers.sort(sortRegisters);
 
     //Get days in a zone
     getDays = () =>{
-        let array = [];
+        let days = [];
         for(i = 0; i < data.length; i++)
-            array.push(data[i].day);
-        array.sort(sortElements);
-
-        return Array.from(new Set(array));
+            days.push(data[i].day);
+        days.sort();
+        return Array.from(new Set(days));
     }
 
     //Get some values peak, totalPeople, values per hour, labels and average
@@ -82,8 +72,38 @@ module.exports = getData = (period,data) => {
         return this;
     }
 
+    //Get data about main vendor, top5 vendors' quantities, and vendorsLabels
+    getVendors = () =>{
+        this.arrayPie = [];
+        this.arrayPieLabels = [];
+        this.vendors = [];
+        let vendors = [];
+        let prev;
+        for(i = 0; i < registers.length; i++){
+            for(j = 0; j < registers[i].macs.length; j++){
+                vendors.push(registers[i].macs[j].vendor);
+            }
+        }
+
+        vendors.sort();
+        for(i = 0; i < vendors.length; i++) {
+            if ( vendors[i] !== prev ) {
+                this.arrayPieLabels.push(vendors[i]);
+                this.arrayPie.push(1);
+            }else{
+                this.arrayPie[this.arrayPie.length-1]++;
+            }
+            prev = vendors[i];
+        }
+
+        // reduceTop5(this.arrayPie,this.arrayPieLabels);
+
+        return this;
+    }
+
     let values = getValues();
     let people = getCustomers();
+    let vendor = getVendors();
 
     return {
       zone: data[0].zone,
@@ -94,8 +114,9 @@ module.exports = getData = (period,data) => {
       arrayLine: values.arrayLine,
       arrayLineLabels: values.hours,
       visitors: people.visitors,
-      customers: people.customers
-  //   vendor: 'Empty',
-  //   arrayPie: []
+      customers: people.customers,
+      arrayPie: vendor.arrayPie,
+      arrayPieLabels: vendor.arrayPieLabels
+      //   vendor: 'Empty',
   }
 }
