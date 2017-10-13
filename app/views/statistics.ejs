@@ -124,9 +124,11 @@
 		<script src="/controllers/statistics.js"></script>
 		<script>
 			let data = <%- JSON.stringify(obj.arrayLine) %>;
+			let label = <%- JSON.stringify(obj.arrayLineLabels) %>;
 			let data2 = <%- JSON.stringify(obj.arrayPie) %>;
-			drawLineChart(data);
-			drawPieChart(data2);
+			let label2 = <%- JSON.stringify(obj.arrayPieLabels) %>;
+			drawLineChart(data,label);
+			drawPieChart(data2,label2);
 		</script>
 	</body>
 </html>

@@ -107,7 +107,6 @@ module.exports = getData = (period,data) => {
         });
 
         reduceTop5(this.arrayPie,this.arrayPieLabels,sortable);
-
         return this;
     }
 
