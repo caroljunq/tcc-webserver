@@ -133,7 +133,7 @@ module.exports = getData = (period,data) => {
     return {
       zone: data[0].zone,
       days: getDays(),
-      daySelected: period,
+      selectedDay: period,
       peak: values.max,
       totalPeople: values.sum,
       dayAverage: values.avg,
