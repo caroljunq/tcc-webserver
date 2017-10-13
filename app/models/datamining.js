@@ -114,7 +114,7 @@ module.exports = getData = (period,data) => {
         let sum = 0;
         arraySort.sort((a,b) => {return b[1]-a[1]});
         for(i = 0 ; i < arraySort.length; i++){
-            if(i < 5){
+            if(i < 4){
                 labels.push(arraySort[i][0]);
                 numbers.push(arraySort[i][1]);
             }else{
@@ -122,7 +122,7 @@ module.exports = getData = (period,data) => {
             }
         }
 
-        labels.push("outros");
+        labels.push("Outros");
         numbers.push(sum);
     }
 
