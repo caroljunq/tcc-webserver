@@ -1,4 +1,8 @@
 # tcc-webserver
+https://github.com/caroljunq/tcc-webserver --> web server
+https://github.com/caroljunq/tcc-sensor --> sensor
+https://github.com/caroljunq/tcc_gsmart --> paper
+
 ## Descrição
 Este repositório descreve a parte do webserver do tcc_gsmart. Esta parte da aplicação recebe arquivos .csv do tcc-sensor, processá-os e gera dataview (gráficos) para apresentá-los. 
 
