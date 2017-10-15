@@ -1,6 +1,7 @@
 const db = require("./db");
 const Scans = require('./models/scan');
 const getdata = require('./models/datamining')
+const getinfo = require('./models/getInfoZones')
 
 module.exports = function(app) {
 
@@ -23,12 +24,13 @@ module.exports = function(app) {
                let obj = getdata("",docs);
                let arrayData = [];
                let count = 0;
+               //for not working for calling getdata
                while(count < obj.days.length){
                   let temp = getdata(obj.days[count].toString(),docs);
                   count++;
                   arrayData.push(temp);
                 };
-              res.send(arrayData);
+                getinfo(arrayData);
               //  res.render('comparing', {obj: obj});
            }else{
                console.log("Error! " + err.message);

@@ -5,7 +5,7 @@ let selectZone = (sel) =>{
   form.submit();
 }
 
-function drawLineChart(labels,data){
+let drawLineChart => (labels,data){
   var data1 = [
     {
         data: [0,0,0,12,13,15,15],
