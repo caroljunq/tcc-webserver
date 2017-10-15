@@ -38,16 +38,17 @@ module.exports = getInfo = (data) => {
     //     return Array.from(new Set(labels));
     // }
 
-    //Get Random Color hexadecimal
-     getRandomColor = () => {
-        var letters = '0123456789ABCDEF'.split('');
-        var color = '#';
-        for (var i = 0; i < 6; i++ ) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
+    // //Get Random Color hexadecimal
+    //  getRandomColor = () => {
+    //     var letters = '0123456789ABCDEF'.split('');
+    //     var color = '#';
+    //     for (var i = 0; i < 6; i++ ) {
+    //         color += letters[Math.floor(Math.random() * 16)];
+    //     }
+    //     return color;
+    // }
 
+    //Get Random Color rgba
     randomRgba = () => {
         let o = Math.round, r = Math.random, s = 255;
         return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + '.8' + ')';
@@ -75,15 +76,12 @@ module.exports = getInfo = (data) => {
         }
         return objs;
     }
-    //
-    return {
-      teste: getCoordinates()
-    }
 
-    // return {
-    //     zone: data[0].zone,
-    //     arrayData: data, //all registers from zone
-    //     labelHours: ,
-    //     dataset:
-    // }
+    let coordinates = getCoordinates();
+
+    return {
+        zone: data[0].zone,
+        arrayData: data, //all registers from zone
+        dataset: coordinates
+    }
 }

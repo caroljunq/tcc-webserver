@@ -31,8 +31,7 @@ module.exports = function(app) {
                   arrayData.push(temp);
                 };
                 let arrayObj = getinfo(arrayData);
-                res.send(arrayObj);
-              //  res.render('comparing');
+                res.render('comparing',{obj: arrayObj});
            }else{
                console.log("Error! " + err.message);
                return err;
