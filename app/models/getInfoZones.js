@@ -12,15 +12,29 @@ module.exports = getInfo = (data) => {
         return 0;
     }
 
-    //Sort registers from one day by hour
+    //Sort registers by day
     registers.sort(sortRegisters);
 
-    getLabels
+    //Get labels to
+    getLabelHours = () => {
+        let labels = [];
 
-  return {
-      zone: data[0].zone,
-      arrayData: data, //all registers from zone
-      labelHours: ,
-      dataset
-  }
+        for(i = 0; i < data.length; i++){
+            let temp = labels;
+            let el = data[i].arrayLineLabels;
+            labels = temp.concat(el);
+        }
+        labels.sort();
+
+        return Array.from(new Set(labels));
+    }
+
+    console.log(getLabelHours());
+
+    // return {
+    //     zone: data[0].zone,
+    //     arrayData: data, //all registers from zone
+    //     labelHours: ,
+    //     dataset:
+    // }
 }

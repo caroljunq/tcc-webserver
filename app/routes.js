@@ -16,22 +16,13 @@ module.exports = function(app) {
         res.render('zones')
     })
 
-    app.get('/comparing/:zone', function(req, res) {
+    app.get('/comparing/', function(req, res) {
        let zone = req.params.zone;
        Scans.find({'zone':zone}).lean().exec(
           function (err, docs) {
            if(!err){
-               let obj = getdata("",docs);
-               let arrayData = [];
-               let count = 0;
-               //for not working for calling getdata
-               while(count < obj.days.length){
-                  let temp = getdata(obj.days[count].toString(),docs);
-                  count++;
-                  arrayData.push(temp);
-                };
-                getinfo(arrayData);
-              //  res.render('comparing', {obj: obj});
+
+               res.render('comparing');
            }else{
                console.log("Error! " + err.message);
                return err;
