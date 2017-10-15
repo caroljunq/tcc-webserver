@@ -12,24 +12,73 @@ module.exports = getInfo = (data) => {
         return 0;
     }
 
+    //Sort elements by x coordinate
+    sortByX = (a,b) =>{
+        if (a.x < b.x)
+            return -1;
+        if (a.x > b.x)
+            return 1;
+        return 0;
+    }
+
     //Sort registers by day
     registers.sort(sortRegisters);
 
-    //Get labels to
-    getLabelHours = () => {
-        let labels = [];
+    // //Get labels to
+    // getLabelHours = () => {
+    //     let labels = [];
+    //
+    //     for(i = 0; i < registers.length; i++){
+    //         let temp = labels;
+    //         let el = registers[i].arrayLineLabels;
+    //         labels = temp.concat(el);
+    //     }
+    //     labels.sort();
+    //
+    //     return Array.from(new Set(labels));
+    // }
 
-        for(i = 0; i < data.length; i++){
-            let temp = labels;
-            let el = data[i].arrayLineLabels;
-            labels = temp.concat(el);
+    //Get Random Color hexadecimal
+     getRandomColor = () => {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
         }
-        labels.sort();
-
-        return Array.from(new Set(labels));
+        return color;
     }
 
-    console.log(getLabelHours());
+    randomRgba = () => {
+        let o = Math.round, r = Math.random, s = 255;
+        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + '.8' + ')';
+    }
+
+
+    getCoordinates = () => {
+        let objs = [];
+        for(i = 0; i < registers.length; i++){
+            let data = [];
+            let color = randomRgba();
+            let bkg = [];
+            for(j = 0; j < registers[i].arrayLine.length; j++){
+                let el = registers[i].arrayLineLabels[j];
+                let obj = {x: el, y: registers[i].arrayLine[j]};
+                bkg.push(color);
+                data.push(obj);
+            }
+            let temp = {
+              label: registers[i].selectedDay,
+              data: data,
+              backgroundColor: bkg
+            };
+            objs.push(temp);
+        }
+        return objs;
+    }
+    //
+    return {
+      teste: getCoordinates()
+    }
 
     // return {
     //     zone: data[0].zone,
