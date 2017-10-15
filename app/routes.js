@@ -15,10 +15,27 @@ module.exports = function(app) {
         res.render('zones')
     })
 
-    app.get('/comparing', (req, res) => {
-        // render `comparing.ejs` with the list of posts
-        res.render('comparing')
-    })
+    app.get('/comparing/:zone', function(req, res) {
+       let zone = req.params.zone;
+       Scans.find({'zone':zone}).lean().exec(
+          function (err, docs) {
+           if(!err){
+               let obj = getdata("",docs);
+               let arrayData = [];
+               let count = 0;
+               while(count < obj.days.length){
+                  let temp = getdata(obj.days[count].toString(),docs);
+                  count++;
+                  arrayData.push(temp);
+                };
+              res.send(arrayData);
+              //  res.render('comparing', {obj: obj});
+           }else{
+               console.log("Error! " + err.message);
+               return err;
+           }
+       });
+     });
 
     app.get('/statistics/:zone', function(req, res) {
        let zone = req.params.zone;

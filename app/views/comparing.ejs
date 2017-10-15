@@ -13,9 +13,9 @@
 		<%- include('partials/navbar') %>
 		<div class="container-fluid">
 			<div class="row zones-comparing">
-				<form>
+				<form method="get" class="select-zones-comparing">
 					<span class="title-select-comparing">Select a zone:</span>
-					<select class="day-selection custom-select">
+					<select onchange="selectZone(this)" class="day-selection custom-select">
    					<option value="LTIA" selected>LTIA</option>
   					<option value="Camflam">Camflam</option>
 					</select>
@@ -82,10 +82,14 @@
 				</div>
 		</div>
 		<%- include('partials/footer') %>
+
 		<script src="/public/js/jquery-3.2.1.min.js"></script>
 		<script src="/public/js/popper.min.js"></script>
 		<script src="/public/js/bootstrap.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 		<script src="/controllers/comparing.js"></script>
+		<script>
+			drawLineChart();
+		</script>
 	</body>
 </html>
