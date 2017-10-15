@@ -20,18 +20,13 @@ module.exports = function(app) {
         res.render('comparing')
     })
 
-    app.get('/statistics', (req, res) => {
-        // render `statistics.ejs` with the list of posts
-        res.render('statistics', {obj: teste})
-    })
-
-   app.get('/statistics/:zone', function(req, res) {
+    app.get('/statistics/:zone', function(req, res) {
        let zone = req.params.zone;
        Scans.find({'zone':zone}).lean().exec(
           function (err, docs) {
            if(!err){
                let obj = getdata("",docs);
-               res.render('statistics', {obj: obj})
+               res.render('statistics', {obj: obj});
            }else{
                console.log("Error! " + err.message);
                return err;

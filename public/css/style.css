@@ -84,6 +84,59 @@ footer{
     margin: 0 auto;
 }
 
+.zones-comparing{
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 20px 10px;
+    justify-content: left;
+}
+
+.title-select-comparing{
+    display: block;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 5px;
+}
+.zones-comparing > form > select{
+    min-width: 200px;
+}
+
+.tables{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+th{
+    color: #666;
+    text-align: center;
+}
+
+td{
+    text-align: center;
+}
+
+@media screen and (max-width: 610px){
+    tr > th:nth-child(6), tr > th:nth-child(7), tr > td:nth-child(6), tr > td:nth-child(7){
+        display: none;
+    }
+}
+
+@media screen and (max-width: 440px){
+    tr > th:nth-child(5), tr > td:nth-child(5){
+        display: none;
+    }
+}
+
+@media screen and (max-width: 365px){
+    tr > th:nth-child(3), tr > td:nth-child(3){
+        display: block;
+    }
+
+    .area-content{
+        display: none;
+    }
+}
 /* statistics.ejs */
 .card{
     box-shadow: 0 5px 5px 0 rgba(0,0,0,.25);
@@ -124,9 +177,3 @@ h3{
 .charts{
   margin-top: 30px;
 }
-
-/* .bg-dark{
-    background-color: #2296f3 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.32);
-    padding: 15px;
-} */

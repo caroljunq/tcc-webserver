@@ -12,12 +12,73 @@
 	<body>
 		<%- include('partials/navbar') %>
 		<div class="container-fluid">
-			<div class="col-lg-6 area-content">
-					<div class="card">
-						<div class="card-body">
-							<canvas id="area-chart"></canvas>
+			<div class="row zones-comparing">
+				<form>
+					<span class="title-select-comparing">Select a zone:</span>
+					<select class="day-selection custom-select">
+   					<option value="LTIA" selected>LTIA</option>
+  					<option value="Camflam">Camflam</option>
+					</select>
+				</form>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 area-content">
+						<div class="card">
+							<div class="card-body">
+								<canvas id="area-chart"></canvas>
+							</div>
 						</div>
-					</div>		
+					</div>
+				</div>
+				<div class="row tables">
+					<div class="col-lg-10">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-striped">
+							    <thead>
+							      <tr>
+							        <th>Day</th>
+							        <th>Traffic Average</th>
+							        <th>Traffic Peak</th>
+											<th>Total Traffic</th>
+											<th>Vendor</th>
+											<th>New Visits</th>
+											<th>Customers</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr>
+							        <td>2017-10-24</td>
+							        <td>100</td>
+							        <td>130</td>
+											<td>130</td>
+											<td>130</td>
+											<td>130</td>
+											<td>130</td>
+							      </tr>
+							      <tr>
+											<td>2017-10-24</td>
+							        <td>100</td>
+							        <td>130</td>
+											<td>130</td>
+											<td>130</td>
+											<td>130</td>
+											<td>130</td>
+							      </tr>
+							      <tr>
+											<td>2017-10-24</td>
+							        <td>100</td>
+							        <td>130</td>
+											<td>130</td>
+											<td>130</td>
+											<td>130</td>
+											<td>130</td>
+							      </tr>
+							    </tbody>
+							  </table>
+							</div>
+						</div>
+					</div>
 				</div>
 		</div>
 		<%- include('partials/footer') %>
