@@ -23,11 +23,9 @@ module.exports = function(app) {
            if(!err){
                let obj = getdata("",docs);
                let arrayData = [];
-               let count = 0;
-               //for not working for calling getdata
-               while(count < obj.days.length){
-                  let temp = getdata(obj.days[count].toString(),docs);
-                  count++;
+
+               for(let i = 0; i < obj.days.length; i++){
+                  let temp = getdata(obj.days[i].toString(),docs);
                   arrayData.push(temp);
                 };
                 let arrayObj = getinfo(arrayData);

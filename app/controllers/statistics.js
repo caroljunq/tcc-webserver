@@ -1,4 +1,4 @@
-let selectedDay = (sel,zone) =>{
+function selectedDay(sel,zone){
   let option = sel.options[sel.selectedIndex];
   let form = document.querySelector('.day-selection');
   let date = option.value.split('-');

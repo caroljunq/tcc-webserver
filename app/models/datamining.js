@@ -7,7 +7,7 @@ module.exports = getData = (period,data) => {
     if(period == ""){
         period = data[0].day;
 
-        for(i = 1; i < data.length; i++){
+        for(let i = 1; i < data.length; i++){
             if(data[i].day < period)
                 period = data[i].day;
         }
@@ -19,7 +19,7 @@ module.exports = getData = (period,data) => {
     });
 
     //Sort elements by hour
-    sortRegisters = (a,b) => {
+    function sortRegisters(a,b){
         if (a.hour < b.hour)
             return -1;
         if (a.hour > b.hour)
@@ -30,25 +30,24 @@ module.exports = getData = (period,data) => {
     //Sort registers from one day by hour
     registers.sort(sortRegisters);
 
-
     //Get days in a zone
-    getDays = () =>{
+    function getDays(){
         let days = [];
-        for(i = 0; i < data.length; i++)
+        for(let i = 0; i < data.length; i++)
             days.push(data[i].day);
         days.sort();
         return Array.from(new Set(days));
     }
 
     //Get some values peak, totalPeople, values per hour, labels and average
-    getValues = () =>{
+      function getValues(){
         this.max = registers[0].macs.length;
         this.sum = 0;
         this.arrayLine = [];
         this.hours = [];
         this.avg = 0;
 
-        for(i = 0; i < registers.length; i++){
+        for(let i = 0; i < registers.length; i++){
             let el = registers[i].macs.length;
             this.sum += el;
             if(el > this.max)
@@ -62,11 +61,11 @@ module.exports = getData = (period,data) => {
     };
 
     //Get quantity of customers and visitors
-    getCustomers = () =>{
+      function getCustomers(){
         this.customers = 0;
         this.visitors = 0;
-        for(i = 0;  i < registers.length; i++){
-            for(j = 0; j < registers[i].macs.length; j++){
+        for(let i = 0;  i < registers.length; i++){
+            for(let j = 0; j < registers[i].macs.length; j++){
                 if(registers[i].macs[j].customer == true)
                     this.customers++;
                 else {
@@ -78,14 +77,14 @@ module.exports = getData = (period,data) => {
     }
 
     //Get data about main vendor, top5 vendors' quantities, and vendorsLabels
-    getVendors = () =>{
+      function getVendors(){
         this.arrayPie = [];
         this.arrayPieLabels = [];
         this.vendors = [];
         let vendors = [];
 
-        for(i = 0; i < registers.length; i++){
-            for(j = 0; j < registers[i].macs.length; j++){
+        for(let i = 0; i < registers.length; i++){
+            for(let j = 0; j < registers[i].macs.length; j++){
                 vendors.push(registers[i].macs[j].vendor);
             }
         }
@@ -94,8 +93,6 @@ module.exports = getData = (period,data) => {
             prev[cur] = (prev[cur] || 0) + 1;
             return prev;
         }, {});
-
-
 
         let sortable = [];
         for(let vendor in map) {
@@ -110,10 +107,10 @@ module.exports = getData = (period,data) => {
         return this;
     }
 
-    reduceTop5 = (numbers,labels,arraySort) =>{
+      function reduceTop5(numbers,labels,arraySort){
         let sum = 0;
         arraySort.sort((a,b) => {return b[1]-a[1]});
-        for(i = 0 ; i < arraySort.length; i++){
+        for(let i = 0 ; i < arraySort.length; i++){
             if(i < 4){
                 labels.push(arraySort[i][0]);
                 numbers.push(arraySort[i][1]);
