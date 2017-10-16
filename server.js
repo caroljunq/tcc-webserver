@@ -3,7 +3,7 @@ const fileUpload = require('express-fileupload');
 const app = express();
 
 // routes ==================================================
-require('./app/routes')(app); // configure our routes
+require('./app/routes')(app); // configure routes
 
 app.set('views',  './app/views');
 app.set('view engine', 'ejs');
@@ -12,19 +12,16 @@ app.use(fileUpload());
 
 app.use('/public', express.static(__dirname + '/public'));
 
-// me tire daqui assim que possível, acho que não precisa servir estático
 app.use('/controllers', express.static(__dirname + '/app/controllers'));
 
-
-// catch 404 and forward to error handler
+// catch 404 and forward to error handler --> route not found
 app.use(function(req, res, next) {
     let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
   
-  // production error handler
-  // no stacktraces leaked to user
+// production error handler
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {message: err.message, error: err});
