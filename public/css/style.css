@@ -189,3 +189,7 @@ h3{
     padding: 40px 15px;
     text-align: center;
 }
+
+.error-template > h1, .error-template > h2{
+    color: #666;
+}
