@@ -18,7 +18,7 @@ app.use('/controllers', express.static(__dirname + '/app/controllers'));
 app.use(function(req, res, next) {
     let err = new Error('Not Found');
     err.status = 404;
-    res.status(err.status || 500);
+    res.status(404);
     res.render('error', {message: err.message, error: err});
 });
   
@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
 //     if (err)
 //       return res.status(500).send(err);
 //   });
-// });
+// });https://derickbailey.com/2016/01/04/route-specific-error-handlers-in-express-apps/
 
 app.listen(3000, function () {
     console.log('Listening on 3000!')
