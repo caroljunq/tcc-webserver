@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head></head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>GSMART</title>
+	<link rel="stylesheet" href="/public/css/bootstrap.css">
+	<link rel="stylesheet" href="/public/css/style.css">
+	<link rel="stylesheet" href="/public/css/font-awesome.css">
+</head>
 <body>
-    <h1 class="text-center title-1"> Erro! </h1>
-    <p><b><%= message %></b></p>
-    <p><%= error.status%></p>
-    <p><%= error.stack%></p>
+	<div class="container-fluid error">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="error-template">
+          <h1>Oops!</h1>
+          <h2><%- error.status %></h2>
+          <div class="error-details"><%- message %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/public/js/jquery-3.2.1.min.js"></script>
+  <script src="/public/js/popper.min.js"></script>
+  <script src="/public/js/bootstrap.js"></script>
 </body>
 </html>
