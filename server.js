@@ -16,6 +16,20 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use('/controllers', express.static(__dirname + '/app/controllers'));
 
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    let err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+  
+  // production error handler
+  // no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {message: err.message, error: err});
+});
+
 // app.post('/', function(req, res) {
 //   if (!req.files)
 //     return res.status(400).send('No files were uploaded.');
