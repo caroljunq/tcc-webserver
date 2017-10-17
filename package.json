@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/caroljunq/tcc-webserver#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "bootstrap": "^3.3.7",
     "chartjs": "^0.3.24",
     "ejs": "^2.5.7",
