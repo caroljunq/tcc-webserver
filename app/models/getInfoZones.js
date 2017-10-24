@@ -1,42 +1,43 @@
 
+// //Get Random Color rgba
+// function randomRgba(){
+//     let o = Math.round, r = Math.random, s = 255;
+//     return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + '.8' + ')';
+// }
+
+// function checkElement(el,arr){
+//     for(let i = 0; i < arr.length; i++){
+//         if(el == arr[i])
+//             return true;
+//     }
+//     return false;
+// }
+
+// function checkLabels(arrLabels,arrValues){
+//     let el = [];
+//     let array = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00'];    
+    
+//     let el  = y.filter( function( el ) {
+//         return x.indexOf( el ) < 0;
+//       });
+
+// }
+
+//Sort elements by day
+function sortRegisters(a,b){
+    if (a.selectedDay < b.selectedDay)
+        return -1;
+    if (a.selectedDay > b.selectedDay)
+        return 1;
+    return 0;
+}
+
 module.exports = getInfo = (data) => {
     let registers = [];
-    registers = data
-
-   //Sort elements by day
-      function sortRegisters(a,b){
-        if (a.selectedDay < b.selectedDay)
-            return -1;
-        if (a.selectedDay > b.selectedDay)
-            return 1;
-        return 0;
-    }
-
-    //Sort elements by x coordinate
-      function sortByX(a,b){
-        if (a.x < b.x)
-            return -1;
-        if (a.x > b.x)
-            return 1;
-        return 0;
-    }
+    registers = data;
 
     //Sort registers by day
     registers.sort(sortRegisters);
-
-    // // //Get labels to
-    // getLabelHours = () => {
-    //     let labels = [];
-    //
-    //     for(i = 0; i < registers.length; i++){
-    //         let temp = labels;
-    //         let el = registers[i].arrayLineLabels;
-    //         labels = temp.concat(el);
-    //     }
-    //     labels.sort();
-    //
-    //     return Array.from(new Set(labels));
-    // }
 
     // //Get Random Color hexadecimal
     //  getRandomColor = () => {
@@ -48,19 +49,6 @@ module.exports = getInfo = (data) => {
     //     return color;
     // }
 
-    //Get Random Color rgba
-      function randomRgba(){
-        let o = Math.round, r = Math.random, s = 255;
-        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + '.8' + ')';
-    }
-
-    // let checkLabels = () =>{
-    //     for(let i = 0; i < 24; i++){
-    //         console.log(i)
-    //     }
-    //     return 'maoee';
-    // }
-    //
     //
     // let getCoordinates = () => {
     //   let maoe = 'teste';
@@ -71,25 +59,6 @@ module.exports = getInfo = (data) => {
     //     }
     // }
 
-    // //Check if an element is in array
-    // checkElement = (el, array) => {
-    //     for(let i = 0; i < array.length; i++)
-    //         if(el == array[i])
-    //             return true;
-    //     return false;
-    // }
-    //
-    // checkLabels = (arrayLabels,numbers) =>{
-    //     let labels = ["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00",
-    //     "23:00"];
-    //     for(let i = 0; i < 24; i++){
-    //         if(!checkElement(labels[i],arrayLabels)){
-    //             arrayLabels.push(labels[i]);
-    //             numbers.push(0);
-    //         }
-    //     }
-    //     console.log('maoe')
-    // }
     //
     //
     // getCoordinates = () => {
@@ -118,10 +87,19 @@ module.exports = getInfo = (data) => {
     //     // return objs;
     //     // console.log(objs)
     // }
-    getCoordinates();
+    // getCoordinates();
 
-    return {
-        zone: data[0].zone,
-        arrayData: data
-    }
+    // return {
+    //     zone: data[0].zone,
+    //     arrayData: data
+    // }
+
+    let x = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00'];
+    let y = registers[0].arrayLineLabels;
+
+    let myArray = x.filter( function( el ) {
+      return y.indexOf( el ) < 0;
+    });
+
+    console.log(myArray);
 }
