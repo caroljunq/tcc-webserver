@@ -73,8 +73,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 		<script src="/controllers/comparing.js"></script>
 		<script>
-		// let data = <%- JSON.stringify(obj.dataset) %>;
-			drawBarChart();
+			let data = <%- JSON.stringify(obj.dataset) %>;
+			drawChart(data);
 		</script>
 	</body>
 </html>
