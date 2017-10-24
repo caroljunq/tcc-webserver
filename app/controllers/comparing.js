@@ -5,55 +5,11 @@ function selectZone(sel){
   form.submit();
 }
 
-
-getRandomColor = () => {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (let i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
-let drawBarChart = () =>{
-
-  var data2 = [
-    {
-      label: 'teste1',
-      backgroundColor: [
-        "#2ecc71",
-        "#2ecc71",
-        "#2ecc71",
-        "#2ecc71",
-
-      ],
-      data: [
-        { x: '14:00', y: 0 },
-        { x: '15:00', y: 69 },
-        { x: '16:00', y: 81 },
-        { x: '17:00', y: 0 },
-        { x: '18:00', y: 69 },
-        { x: '19:00', y: 81 },
-        { x: '20:00', y: 0 },
-        { x: '21:00', y: 0 },
-        { x: '22:00', y: 81 },
-        { x: '23:00', y: 81 },
-      ]
-    },
-    {
-      label: 'teste2',
-      data: [
-        { x: '14:00', y: 86 },
-        { x: '17:00', y: 130 },
-
-      ]
-    },
-  ];
-
+let drawBarChart = (data2) =>{
   new Chart(document.getElementById("area-chart"), {
     type: 'bar',
     data: {
-      labels: ["14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],
+      labels: ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00'], 
       datasets: data2
     },
     options: {
