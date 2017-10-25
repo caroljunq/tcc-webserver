@@ -69,7 +69,7 @@ module.exports = getInfo = (data) => {
     //Sort registers by day
     registers.sort(sortRegisters);
 
-    let valuesSet = getCoordinates();
+    let valuesSet = getCoordinates(registers);
 
     return {
         zone: data[0].zone,

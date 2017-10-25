@@ -16,8 +16,14 @@
 				<form method="get" class="select-zones-comparing">
 					<span class="title-select-comparing">Select a zone:</span>
 					<select onchange="selectZone(this)" class="day-selection custom-select">
-   					<option value="LTIA" selected>LTIA</option>
-  					<option value="Camflam">Camflam</option>
+						<% let array = ['LTIA','Camflam']%>
+						<% array.forEach(function(zone) { %>
+							<% if(zone == obj.zone){ %>
+   							<option value="<%= zone %>" selected><%= zone %></option>
+ 							<% } else{ %>
+  							<option value="<%= zone %>"><%= zone %></option>
+							<% } %>
+	    			<% }); %>
 					</select>
 				</form>
 			</div>
