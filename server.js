@@ -1,12 +1,14 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const app = express();
-
+const multer  = require('multer');
+const upload = multer({ dest: __dirname+'/app/uploads' }).any();
 // routes ==================================================
 require('./app/routes')(app); // configure routes
 
 app.set('views',  './app/views');
 app.set('view engine', 'ejs');
+app.use(upload);
 
 app.use(fileUpload());
 
@@ -21,7 +23,7 @@ app.use(function(req, res, next) {
     res.status(404);
     res.render('error', {message: err.message, error: err});
 });
-  
+
 // app.post('/', function(req, res) {
 //   if (!req.files)
 //     return res.status(400).send('No files were uploaded.');
@@ -34,7 +36,14 @@ app.use(function(req, res, next) {
 //     if (err)
 //       return res.status(500).send(err);
 //   });
-// });https://derickbailey.com/2016/01/04/route-specific-error-handlers-in-express-apps/
+// });
+
+app.post('/upload', function(req, res){
+    console.log(req.body) // form fields
+    console.log(req.files) // form files
+    res.status(204).end()
+});
+
 
 app.listen(3000, function () {
     console.log('Listening on 3000!')
