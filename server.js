@@ -1,12 +1,14 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const app = express();
-
+const multer  = require('multer');
+const upload = multer({ dest: __dirname+'/app/uploads' }).any();
 // routes ==================================================
 require('./app/routes')(app); // configure routes
 
 app.set('views',  './app/views');
 app.set('view engine', 'ejs');
+app.use(upload);
 
 app.use(fileUpload());
 
