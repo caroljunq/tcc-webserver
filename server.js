@@ -21,20 +21,20 @@ app.use(function(req, res, next) {
     res.status(404);
     res.render('error', {message: err.message, error: err});
 });
-  
-// app.post('/', function(req, res) {
-//   if (!req.files)
-//     return res.status(400).send('No files were uploaded.');
 
-//   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-//   let sampleFile = req.files.sampleFile;
+app.post('/upload', function(req, res) {
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.');
 
-//   // Use the mv() method to place the file somewhere on your server
-//   sampleFile.mv(sampleFile.name, function(err) {
-//     if (err)
-//       return res.status(500).send(err);
-//   });
-// });https://derickbailey.com/2016/01/04/route-specific-error-handlers-in-express-apps/
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = req.files.sampleFile;
+
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv(sampleFile.name, function(err) {
+    if (err)
+      return res.status(500).send(err);
+  });
+});
 
 app.listen(3000, function () {
     console.log('Listening on 3000!')
