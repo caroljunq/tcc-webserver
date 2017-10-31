@@ -91,10 +91,8 @@ module.exports = function(app) {
             return res.status(400).send('No files were uploaded.');
 
         let file = req.files.file;// comando curl -X POST -F "file=@pathfile" URL
-
-        fs.writeFile(file.name, file.data, (err) =>{
-            if(!err) return err;
-        })
+        let texto = file.data.split('-');
+        console.log(texto);
     });
 
 }
