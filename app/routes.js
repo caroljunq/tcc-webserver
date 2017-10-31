@@ -93,8 +93,8 @@ module.exports = function(app) {
         //The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
         // let sampleFile = req.files.sampleFile;
 
-        console.log(JSON.stringify(req.files)+"maoee")//Use the mv() method to place the file somewhere on your server
-        console.log(req.files.data)
+        //Use the mv() method to place the file somewhere on your server
+        console.log(req.files.data.data)
         // sampleFile.mv('./app/uploads/'+sampleFile.name, function(err) {
         //     if (err)
         //         return res.status(500).send(err);
