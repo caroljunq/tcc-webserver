@@ -93,9 +93,7 @@ module.exports = function(app) {
         let file = req.files.file;// comando curl -X POST -F "file=@pathfile" URL
 
         fs.writeFile(file.name, file.data, (err) =>{
-            if(!err) throw err
-
-            console.log("deu certo")
+            if(!err) return err;
         })
     });
 
