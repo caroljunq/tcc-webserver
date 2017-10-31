@@ -3,6 +3,7 @@ const Scans = require('./models/scan');
 const getdata = require('./models/datamining')
 const getinfo = require('./models/getInfoZones')
 const fileUpload = require('express-fileupload');
+const fs = require('fs');
 
 
 module.exports = function(app) {
@@ -94,7 +95,13 @@ module.exports = function(app) {
         // let sampleFile = req.files.sampleFile;
 
         //Use the mv() method to place the file somewhere on your server
-        console.log(req.files.sampleFile.+'maoee');
+        let teste = req.files.file.data;// comando curl -X POST -F "file=@pathfile" URL
+        fs.writeFile('opa.txt',teste,function(err){
+            if(!err)
+            console.log(err)
+        })
+
+
         // console.log(req.files.data.data.toString()) //deu certo pÔoo com o comando curl -i -X POST -H "Content-Type: multipart/form-data" -F "data=@pathfile" URL
         // sampleFile.mv('./app/uploads/'+sampleFile.name, function(err) {
         //     if (err)
