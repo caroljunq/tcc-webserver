@@ -94,7 +94,8 @@ module.exports = function(app) {
         // let sampleFile = req.files.sampleFile;
 
         //Use the mv() method to place the file somewhere on your server
-        console.log(req.files.data.data)
+        console.log('maoe'+req+'maoee');
+        console.log(req.files.data.data.toString())
         // sampleFile.mv('./app/uploads/'+sampleFile.name, function(err) {
         //     if (err)
         //         return res.status(500).send(err);
