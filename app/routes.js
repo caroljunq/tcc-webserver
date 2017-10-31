@@ -94,7 +94,7 @@ module.exports = function(app) {
         // let sampleFile = req.files.sampleFile;
 
         //Use the mv() method to place the file somewhere on your server
-        console.log('maoe'+req+'maoee');
+        console.log(req.files.sampleFile.+'maoee');
         // console.log(req.files.data.data.toString()) //deu certo pÔoo com o comando curl -i -X POST -H "Content-Type: multipart/form-data" -F "data=@pathfile" URL
         // sampleFile.mv('./app/uploads/'+sampleFile.name, function(err) {
         //     if (err)
