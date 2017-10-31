@@ -87,26 +87,16 @@ module.exports = function(app) {
     });
 
     app.post('/upload', function(req, res) {
+        if (!req.files)
+            return res.status(400).send('No files were uploaded.');
 
-        // if (!req.files)
-        //     return res.status(400).send('No files were uploaded.');
+        let file = req.files.file;// comando curl -X POST -F "file=@pathfile" URL
 
-        //The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-        // let sampleFile = req.files.sampleFile;
+        fs.writeFile(file.name, file.data, (err) =>{
+            if(!err) throw err
 
-        //Use the mv() method to place the file somewhere on your server
-        let teste = req.files.file.data;// comando curl -X POST -F "file=@pathfile" URL
-        fs.writeFile('opa.txt',teste,function(err){
-            if(!err)
-            console.log(err)
+            console.log("deu certo")
         })
-
-
-        // console.log(req.files.data.data.toString()) //deu certo pÔoo com o comando curl -i -X POST -H "Content-Type: multipart/form-data" -F "data=@pathfile" URL
-        // sampleFile.mv('./app/uploads/'+sampleFile.name, function(err) {
-        //     if (err)
-        //         return res.status(500).send(err);
-        // });
     });
 
 }
