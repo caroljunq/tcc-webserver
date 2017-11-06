@@ -68,7 +68,7 @@ module.exports = function(app) {
         let month = req.params.month;
         let year = req.params.year;
         let period = year+'-'+month+'-'+day;
-        Scans.find({'zone':zone,'day': year+'-'+month+'-'+day}).lean().exec(
+        Scans.find({'zone':zone}).lean().exec(
             function (err, docs) {
 	            if(err){
 				    res.render('error',{message:err.message,error: err});
