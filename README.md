@@ -9,6 +9,7 @@ Este repositório descreve a parte do webserver do tcc_gsmart. Esta parte da apl
 
 ![inicial](https://github.com/caroljunq/tcc-webserver/blob/master/statistics.png "Statistics")
 ![zones](https://github.com/caroljunq/tcc-webserver/blob/master/zones.png "Zones")
+![comparing](https://github.com/caroljunq/tcc-webserver/blob/master/comparing.png "Comparing")
 
 
 ## Descrição Geral - GSMART
