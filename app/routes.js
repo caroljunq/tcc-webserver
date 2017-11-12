@@ -1,7 +1,8 @@
 const db = require("./db");
 const Scans = require('./models/scan');
-const getdata = require('./models/datamining')
-const getinfo = require('./models/getInfoZones')
+const prepareData = require('./models/datapreparation');
+const getdata = require('./models/datamining');
+const getinfo = require('./models/getInfoZones');
 const fs = require('fs');
 const fileUpload = require('express-fileupload');
 
@@ -92,7 +93,14 @@ module.exports = function(app) {
 
         let file = req.files.file;// comand curl -X POST -F "file=@pathfile" URL
         let fileText = file.data.toString();
-        console.log(fileText)
+        fs.writeFile(__dirname+"/upload/"+file.name,fileText, function(err) {
+    		if(err) {
+        		return;
+    		}
+    		prepareData(fileText);
+    		res.send('Sucesso!')	
+		}); 
+        
     });
 
 }
