@@ -2,13 +2,13 @@ const db = require("./db");
 const Scans = require('./models/scan');
 const getdata = require('./models/datamining')
 const getinfo = require('./models/getInfoZones')
-const fileUpload = require('express-fileupload');
 const fs = require('fs');
+const fileUpload = require('express-fileupload');
+
 
 
 module.exports = function(app) {
-
-    app.use(fileUpload());
+	app.use(fileUpload());
 
     app.get('/', (req, res) => {
         // render `zones.ejs` with the list of posts
@@ -79,7 +79,7 @@ module.exports = function(app) {
         			res.render('statistics', {obj: obj})
                 }else{
 					let err2 = {
-						status: '404 Not Found'
+						staus: '404 Not Found'
 					}
 					res.render('error',{message:"Sorry, Moongoose didn't find any document.",error: err2});
 			    }
@@ -90,9 +90,9 @@ module.exports = function(app) {
         if (!req.files)
             return res.status(400).send('No files were uploaded.');
 
-        let file = req.files.file;// comando curl -X POST -F "file=@pathfile" URL
-        let texto = file.data.split('-');
-        console.log(texto);
+        let file = req.files.file;// comand curl -X POST -F "file=@pathfile" URL
+        let fileText = file.data.toString();
+        console.log(fileText)
     });
 
 }
