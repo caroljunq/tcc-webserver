@@ -97,8 +97,16 @@ module.exports = function(app) {
     		if(err) {
         		return;
     		}
-    		prepareData(fileText);
-    		res.send('Sucesso!')	
+    		prepareData(fileText).then(
+    			function(scan){
+    				console.log(scan);
+    				res.status(200).json(scan)
+    			}
+    		).catch(
+    		function(scan){
+    				console.log(scan);
+    				res.status(500).json(scan)
+    			});	
 		}); 
         
     });
