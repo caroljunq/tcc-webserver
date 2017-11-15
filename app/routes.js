@@ -97,7 +97,7 @@ module.exports = function(app) {
     		if(err) {
         		return;
     		}
-    		prepareData(fileName,fileText);
+    		prepareData(fileName,fileText)
     		.then((scan) => {res.status(200).json(scan)})
     		.catch((scan) => {res.status(500).json(scan)});	
 		}); 
