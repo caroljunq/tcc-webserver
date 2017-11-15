@@ -2,7 +2,6 @@ const request = require('request');
 const Scans = require('./scan');
 
 module.exports = prepareData = (fileName,fileText) => {
-	console.log('estou na preparacao')
 	return new Promise((res,rej) => {
 		let arr = fileText.split(/\n/);
 

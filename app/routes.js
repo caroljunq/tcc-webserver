@@ -96,7 +96,6 @@ module.exports = function(app) {
         fs.writeFile('./upload/'+fileName,fileText, function(err) {
 
     		if(err) {
-    			console.log('errou');
         		return;
     		}
     		prepareData(fileName,fileText)
