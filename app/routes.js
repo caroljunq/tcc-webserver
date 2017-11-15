@@ -93,13 +93,13 @@ module.exports = function(app) {
         
         let fileText = req.body.file;
         let fileName = req.body.fileName;
-        fs.writeFile(fileName,fileText, function(err) {
+        fs.writeFile('./upload/'+fileName,fileText, function(err) {
 
     		if(err) {
     			console.log('errou');
         		return;
     		}
-    		prepareData('./upload/'+fileName,fileText)
+    		prepareData(fileName,fileText)
     		.then((scan) => {res.status(200).json(scan)})
     		.catch((scan) => {res.status(500).json(scan)});	
 		}); 
