@@ -100,7 +100,9 @@ module.exports = function(app) {
   //   		.then((scan) => {res.status(200).json(scan)})
   //   		.catch((scan) => {res.status(500).json(scan)});	
 		// }); 
-        return req;
+
+		return req;
+      
     });
 
 }
