@@ -99,7 +99,7 @@ module.exports = function(app) {
     			console.log('errou');
         		return;
     		}
-    		prepareData(__dirname + '/upload/'+fileName,fileText)
+    		prepareData('./upload/'+fileName,fileText)
     		.then((scan) => {res.status(200).json(scan)})
     		.catch((scan) => {res.status(500).json(scan)});	
 		}); 
