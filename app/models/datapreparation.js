@@ -28,6 +28,7 @@ module.exports = prepareData = (fileName,fileText) => {
 		});
 
 		for(let i = 0; i < total; i++){
+			console.log('ntrei aqi')
 			Scans.search('comic', function(error, books){
     			console.log(books.length);
 			});
