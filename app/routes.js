@@ -88,7 +88,6 @@ module.exports = function(app) {
     });
 
     app.post('/upload', function(req, res) {
-    	console.log('entrei');
         if (!req.body.file)
             return res.status(400).send('No files were uploaded.');
         
@@ -100,7 +99,7 @@ module.exports = function(app) {
     			console.log('errou');
         		return;
     		}
-    		prepareData(fileName,fileText)
+    		prepareData(__dirname + '/upload/'+fileName,fileText)
     		.then((scan) => {res.status(200).json(scan)})
     		.catch((scan) => {res.status(500).json(scan)});	
 		}); 
