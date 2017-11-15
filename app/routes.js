@@ -100,7 +100,7 @@ module.exports = function(app) {
   //   		.then((scan) => {res.status(200).json(scan)})
   //   		.catch((scan) => {res.status(500).json(scan)});	
 		// }); 
-		console.log(req.files.file)
+		console.log(req)
 		res.send('maoee');
       
     });
