@@ -88,13 +88,15 @@ module.exports = function(app) {
     });
 
     app.post('/upload', function(req, res) {
-
+    	console.log('entrei');
         if (!req.body.file)
             return res.status(400).send('No files were uploaded.');
         
         let fileText = req.body.file;
         let fileName = req.body.fileName;
         fs.writeFile(__dirname+"/upload/"+fileName,fileText, function(err) {
+
+        	console.log('escrebeve'+fileText);
     		if(err) {
         		return;
     		}
