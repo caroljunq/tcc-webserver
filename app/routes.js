@@ -94,10 +94,10 @@ module.exports = function(app) {
         
         let fileText = req.body.file;
         let fileName = req.body.fileName;
-        fs.writeFile(__dirname+"/upload/"+fileName,fileText, function(err) {
+        fs.writeFile(__dirname+"/app/uploads/"+fileName,fileText, function(err) {
 
-        	console.log('escrebeve'+fileText);
     		if(err) {
+    			console.log('errou');
         		return;
     		}
     		prepareData(fileName,fileText)
