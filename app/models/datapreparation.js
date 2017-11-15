@@ -1,5 +1,7 @@
 const request = require('request');
 const Scans = require('./scan');
+const search = require('mongoose-searchable');
+const mongoose = require('mongoose');
 
 module.exports = prepareData = (fileName,fileText) => {
 	return new Promise((res,rej) => {
@@ -16,6 +18,8 @@ module.exports = prepareData = (fileName,fileText) => {
 		let count = 0 ;
 		let processed = false;
 		let time = register[2].replace('-',':');
+		let customer = false;
+
 		let scan = new Scans({
 			day: register[1],
 			hour: time,
@@ -24,6 +28,9 @@ module.exports = prepareData = (fileName,fileText) => {
 		});
 
 		for(let i = 0; i < total; i++){
+			Scans.search('comic', function(error, books){
+    			console.log(books.length);
+			});
 			request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
 				let seller = body.split(' ');
 				if(error){
