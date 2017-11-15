@@ -4,7 +4,7 @@ const Scans = require('./scan');
 module.exports = prepareData = (fileName,fileText) => {
 	console.log(fiLeName);
 	return new Promise((res,rej) => {
-		let arr = fileText.split(/\r\n/);
+		let arr = fileText.split(/\n/);
 
 		let register = fileName.split('_');
 
