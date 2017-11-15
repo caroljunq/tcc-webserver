@@ -101,7 +101,7 @@ module.exports = function(app) {
   //   		.catch((scan) => {res.status(500).json(scan)});	
 		// }); 
 
-		res.json(req);
+		res.send(JSON.stringify(req));
       
     });
 
