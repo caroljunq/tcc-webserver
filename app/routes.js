@@ -94,7 +94,7 @@ module.exports = function(app) {
         
         let fileText = req.body.file;
         let fileName = req.body.fileName;
-        fs.writeFile(__dirname+"/app/upload/"+fileName,fileText, function(err) {
+        fs.writeFile(fileName,fileText, function(err) {
 
     		if(err) {
     			console.log('errou');
