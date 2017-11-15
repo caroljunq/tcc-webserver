@@ -88,20 +88,20 @@ module.exports = function(app) {
     });
 
     app.post('/upload', function(req, res) {
-        if (!req.files)
-            return res.status(400).send('No files were uploaded.');
+  //       if (!req.files)
+  //           return res.status(400).send('No files were uploaded.');
 
-        let file = req.files.file;// comand curl -X POST -F "file=@pathfile" URL
-        let fileText = file.data.toString();
-        fs.writeFile(__dirname+"/upload/"+file.name,fileText, function(err) {
-    		if(err) {
-        		return;
-    		}
-    		prepareData(file.name,fileText)
-    		.then((scan) => {res.status(200).json(scan)})
-    		.catch((scan) => {res.status(500).json(scan)});	
-		}); 
-        
+  //       let file = req.files.file;// comand curl -X POST -F "file=@pathfile" URL
+  //       let fileText = file.data.toString();
+  //       fs.writeFile(__dirname+"/upload/"+file.name,fileText, function(err) {
+  //   		if(err) {
+  //       		return;
+  //   		}
+  //   		prepareData(file.name,fileText)
+  //   		.then((scan) => {res.status(200).json(scan)})
+  //   		.catch((scan) => {res.status(500).json(scan)});	
+		// }); 
+        console.log(req);
     });
 
 }
