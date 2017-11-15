@@ -89,20 +89,19 @@ module.exports = function(app) {
 
     app.post('/upload', function(req, res) {
 
-  //       if (!req.body.file)
-  //           return res.status(400).send('No files were uploaded.');
+        if (!req.body.file)
+            return res.status(400).send('No files were uploaded.');
         
-  //       let fileText = req.body.file;
-  //       let fileName = req.body.fileName;
-  //       fs.writeFile(__dirname+"/upload/"+file.name,fileText, function(err) {
-  //   		if(err) {
-  //       		return;
-  //   		}
-  //   		prepareData(fileName,fileText)
-  //   		.then((scan) => {res.status(200).json(scan)})
-  //   		.catch((scan) => {res.status(500).json(scan)});	
-		// }); 
-		console.log(req.body)
+        let fileText = req.body.file;
+        let fileName = req.body.fileName;
+        fs.writeFile(__dirname+"/upload/"+fileName,fileText, function(err) {
+    		if(err) {
+        		return;
+    		}
+    		prepareData(fileName,fileText)
+    		.then((scan) => {res.status(200).json(scan)})
+    		.catch((scan) => {res.status(500).json(scan)});	
+		}); 
     });
 
 }
