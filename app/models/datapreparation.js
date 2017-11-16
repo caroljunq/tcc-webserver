@@ -53,7 +53,7 @@ module.exports = prepareData = (fileName,fileText) => {
 
 			for(let i = 0; i < total; i++){
 				request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
-					let seller = body;
+					let seller = JSON.stringify(body);
 					let vendor = seller.split(' ');
 					if(error){
 						processed  = true;
