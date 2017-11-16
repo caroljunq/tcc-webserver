@@ -53,8 +53,7 @@ module.exports = prepareData = (fileName,fileText) => {
 
 			for(let i = 0; i < total; i++){
 				request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
-					let seller = body.toString();
-					let vendor = seller.split(' ');
+					let seller = body;
 					if(error){
 						processed  = true;
 						return rej(error);
@@ -62,7 +61,7 @@ module.exports = prepareData = (fileName,fileText) => {
 	  				++count;
 	  				scan.macs.push({
 	  					mac: macs[i],
-	  					vendor: vendor[0],
+	  					vendor: seller,
 	  					customer: customers[i]
 	  				});
 
