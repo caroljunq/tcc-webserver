@@ -18,7 +18,7 @@ module.exports = prepareData = (fileName,fileText) => {
 
 		let aux = [];
 		Scans.find({'zone': register[0]},function(err, doc){
-
+			console.log('entrei para salvar a zona')
 			for(let k = 0 ; k < doc.length; k++){
 				for(let j = 0; j < doc[k].macs.length; j++){
 						aux.push(doc[k].macs[j].mac);
@@ -54,6 +54,7 @@ module.exports = prepareData = (fileName,fileText) => {
 
 
 			for(let i = 0; i < total; i++){
+				console.log('entrei para rodar todo muundo')
 				request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
 					let seller = body;
 					if(error){
