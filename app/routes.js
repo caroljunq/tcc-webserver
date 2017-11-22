@@ -90,7 +90,7 @@ module.exports = function(app) {
     app.post('/upload', function(req, res) {
         if (!req.body.file)
             return res.status(400).send('No files were uploaded.');
-        
+
         let fileText = req.body.file;
         let fileName = req.body.fileName;
         fs.writeFile('./upload/'+fileName,fileText, function(err) {
@@ -100,8 +100,8 @@ module.exports = function(app) {
     		}
     		prepareData(fileName,fileText)
     		.then((scan) => {res.status(200).json(scan)})
-    		.catch((scan) => {res.status(500).json(scan)});	
-		}); 
+    		.catch((scan) => {res.status(500).json(scan)});
+		});
     });
 
 }

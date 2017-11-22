@@ -3,6 +3,7 @@ const Scans = require('./scan');
 const mongoose = require('mongoose');
 
 module.exports = prepareData = (fileName,fileText) => {
+	console.log('preparando dados')
 	return new Promise((res,rej) => {
 		let arr = fileText.split(/\n/);
 
@@ -10,14 +11,14 @@ module.exports = prepareData = (fileName,fileText) => {
 
 		//delete duplicates in array
 		let macs = arr.filter((item, pos) => {
-		  	return arr.indexOf(item) == pos && item != ''; 
+		  	return arr.indexOf(item) == pos && item != '';
 		});
 
 		let customers = [];
 
 		let aux = [];
 		Scans.find({'zone': register[0]},function(err, doc){
-			
+
 			for(let k = 0 ; k < doc.length; k++){
 				for(let j = 0; j < doc[k].macs.length; j++){
 						aux.push(doc[k].macs[j].mac);
@@ -25,15 +26,15 @@ module.exports = prepareData = (fileName,fileText) => {
 			}
 
 			let zoneMacs = aux.filter((item, pos) => {
-		  		return aux.indexOf(item) == pos; 
-			});	
-				
+		  		return aux.indexOf(item) == pos;
+			});
+
 			for(let k = 0; k < macs.length; k++){
 
 				if(zoneMacs.indexOf(macs[k]) == -1){
-					customers[k] = false;	
-				}else{ 
-				
+					customers[k] = false;
+				}else{
+
 					customers[k]= true;
 				}
 			}
