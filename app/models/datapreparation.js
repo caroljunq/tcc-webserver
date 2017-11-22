@@ -52,6 +52,7 @@ module.exports = prepareData = (fileName,fileText) => {
 				macs: []
 			});
 
+
 			for(let i = 0; i < total; i++){
 				request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
 					let seller = body;
@@ -69,6 +70,7 @@ module.exports = prepareData = (fileName,fileText) => {
 	  				if(!processed && count == total){
 	  					processed  = true;
 	  					scan.save((err) => {
+							console.log('to salvando')
 	  						if(err){
 	  							rej(err);
 	  						}
@@ -76,6 +78,7 @@ module.exports = prepareData = (fileName,fileText) => {
 	  					});
 	  				}
 				});
+				console.log(scan);
 			}
 		});
 	});
