@@ -3,7 +3,6 @@ const Scans = require('./scan');
 const mongoose = require('mongoose');
 
 module.exports = prepareData = (fileName,fileText) => {
-	console.log('preparando dados')
 	return new Promise((res,rej) => {
 		let arr = fileText.split(/\n/);
 
@@ -18,7 +17,7 @@ module.exports = prepareData = (fileName,fileText) => {
 
 		let aux = [];
 		Scans.find({'zone': register[0]},function(err, doc){
-			console.log('entrei para salvar a zona')
+
 			for(let k = 0 ; k < doc.length; k++){
 				for(let j = 0; j < doc[k].macs.length; j++){
 						aux.push(doc[k].macs[j].mac);
@@ -52,11 +51,9 @@ module.exports = prepareData = (fileName,fileText) => {
 				macs: []
 			});
 
-
 			for(let i = 0; i < total; i++){
-				console.log('entrei para rodar todo muundo')
 				request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
-					console.log('to fazendo request')
+					console.log('request')
 					let seller = body;
 					if(error){
 						processed  = true;
@@ -68,11 +65,11 @@ module.exports = prepareData = (fileName,fileText) => {
 	  					vendor: seller,
 	  					customer: customers[i]
 	  				});
-
-	  				if(count == total){
+					console.log(scan)
+	  				if(!processed && count == total){
 	  					processed  = true;
 	  					scan.save((err) => {
-							console.log('to salvando')
+							console.log('salvei');
 	  						if(err){
 	  							rej(err);
 	  						}
