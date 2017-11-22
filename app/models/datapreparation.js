@@ -78,7 +78,6 @@ module.exports = prepareData = (fileName,fileText) => {
 	  					});
 	  				}
 				});
-				console.log(scan);
 			}
 		});
 	});
