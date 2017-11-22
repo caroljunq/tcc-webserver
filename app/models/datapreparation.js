@@ -66,7 +66,9 @@ module.exports = prepareData = (fileName,fileText) => {
 	  					customer: customers[i]
 	  				});
 					console.log(scan)
+					console.log('o proceed eh '+ proceed +' e o count '+ count);
 	  				if(!processed && count == total){
+						console.log('entrei aqui para salvar')
 	  					processed  = true;
 	  					scan.save((err) => {
 							console.log('salvei');
