@@ -56,6 +56,7 @@ module.exports = prepareData = (fileName,fileText) => {
 			for(let i = 0; i < total; i++){
 				console.log('entrei para rodar todo muundo')
 				request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
+					console.log('to fazendo request')
 					let seller = body;
 					if(error){
 						processed  = true;
