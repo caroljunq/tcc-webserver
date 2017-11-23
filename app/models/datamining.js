@@ -77,11 +77,11 @@ module.exports = getData = (period,data) => {
         }
 
         let newArray = customersArray.filter(function (el, i, arr) {
-	              return customersArray.indexOf(el) === i;
+	          return customersArray.indexOf(el) === i;
         });
 
         let visits = visitorsArray.filter(function (el, i, arr) {
-	              return visitorsArray.indexOf(el) === i;
+	           return visitorsArray.indexOf(el) === i;
         });
 
         this.customers = newArray.length;
