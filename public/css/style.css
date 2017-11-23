@@ -18,6 +18,11 @@ footer{
     height: 34px;
 }
 
+#vendor{
+    overflow: hidden;
+    max-height: 1em;
+}
+
 /* index.ejs */
 
 /* zones.ejs */
