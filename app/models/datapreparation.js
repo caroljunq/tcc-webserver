@@ -16,7 +16,7 @@ module.exports = prepareData = (fileName,fileText) => {
 		let customers = [];
 		console.log(register[1])
 		let aux = [];
-		Scans.find({'zone': register[0], 'day': {$and:[{'day':{$ne:register[1]}},{'day':{$lte:register[1]}}]}},function(err, doc){
+		Scans.find({'zone': register[0], 'day': {$and:[{'day':{$ne:register[1]}},{'day':{$lt:register[1]}}]}},function(err, doc){
 			console.log(doc.length);
 			for(let k = 0 ; k < doc.length; k++){
 				for(let j = 0; j < doc[k].macs.length; j++){
