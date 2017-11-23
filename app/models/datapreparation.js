@@ -58,7 +58,7 @@ module.exports = prepareData = (fileName,fileText) => {
 						seller = 'not-found'
 						processed  = true;
 						return rej(error);
-					else{
+					}else{
 						seller = body;
 					}
 					// }else{
