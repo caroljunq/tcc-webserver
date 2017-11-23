@@ -64,15 +64,28 @@ module.exports = getData = (period,data) => {
       function getCustomers(){
         this.customers = 0;
         this.visitors = 0;
+        let customersArray = [];
+        let visitorsArray = [];
         for(let i = 0;  i < registers.length; i++){
             for(let j = 0; j < registers[i].macs.length; j++){
-                if(registers[i].macs[j].customer == true)
-                    this.customers++;
-                else {
-                    this.visitors++;
+                if(registers[i].macs[j].customer == true){
+                    customersArray.push(registers[i].macs[j].mac);
+                }else{
+                    visitorsArray.push(registers[i].macs[j].mac);
                 }
             }
         }
+
+        let newArray = customersArray.filter(function (el, i, arr) {
+	              return customersArray.indexOf(el) === i;
+        });
+
+        let visits = visitorsArray.filter(function (el, i, arr) {
+	              return visitorsArray.indexOf(el) === i;
+        });
+
+        this.customers = newArray.length;
+        this.visitors = visits.length;
         return this;
     }
 
@@ -124,7 +137,7 @@ module.exports = getData = (period,data) => {
     }
 
     let values = getValues();
-    let people = getCustomers();
+    let people = getCustomers(values);
     let vendor = getVendors();
 
     return {
