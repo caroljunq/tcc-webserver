@@ -58,11 +58,14 @@ module.exports = prepareData = (fileName,fileText) => {
 						seller = 'not-found'
 						processed  = true;
 						return rej(error);
-					}else{
-						let vendor = JSON.stringify(body);
-						seller = vendor.split(' ')[0];
+					else{
+						seller = body;
 					}
-	  				++count;
+					// }else{
+					// 	let vendor = JSON.stringify(body);
+					// 	seller = vendor.split(' ')[0];
+					// }
+					++count;
 	  				scan.macs.push({
 	  					mac: macs[i],
 	  					vendor: seller,
