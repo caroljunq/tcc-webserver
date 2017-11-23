@@ -16,8 +16,8 @@ module.exports = prepareData = (fileName,fileText) => {
 		let customers = [];
 
 		let aux = [];
-		Scans.find({'zone': register[0]},function(err, doc){
-
+		Scans.find({'zone': register[0], 'day': {$not: register[1]}},function(err, doc){
+			console.log(doc.length);
 			for(let k = 0 ; k < doc.length; k++){
 				for(let j = 0; j < doc[k].macs.length; j++){
 						aux.push(doc[k].macs[j].mac);
