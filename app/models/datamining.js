@@ -137,15 +137,16 @@ module.exports = getData = (period,data) => {
     }
 
     let values = getValues();
-    let people = getCustomers(values);
+    let people = getCustomers();
     let vendor = getVendors();
+    let total = people.visitors + people.customers;
 
     return {
       zone: data[0].zone,
       days: getDays(),
       selectedDay: period,
       peak: values.max,
-      totalPeople: values.sum,
+      totalPeople: total,
       dayAverage: values.avg,
       arrayLine: values.arrayLine,
       arrayLineLabels: values.hours,
