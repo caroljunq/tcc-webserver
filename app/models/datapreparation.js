@@ -77,7 +77,7 @@ module.exports = prepareData = (fileName,fileText) => {
 
 	  					processed  = true;
 	  					scan.save((err) => {
-
+	  						console.log('salvei')
 	  						if(err){
 	  							rej(err);
 	  						}
