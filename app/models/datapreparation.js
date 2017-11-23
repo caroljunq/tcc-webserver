@@ -53,11 +53,14 @@ module.exports = prepareData = (fileName,fileText) => {
 
 			for(let i = 0; i < total; i++){
 				request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
-					console.log('request')
-					let seller = body;
+					let seller;
 					if(error){
+						seller = 'not-found'
 						processed  = true;
 						return rej(error);
+					}else{
+						let vendor = JSON.stringify(body);
+						seller = vendor.split(' ')[0];
 					}
 	  				++count;
 	  				scan.macs.push({
@@ -65,13 +68,13 @@ module.exports = prepareData = (fileName,fileText) => {
 	  					vendor: seller,
 	  					customer: customers[i]
 	  				});
-					console.log(scan)
-					console.log('o proceed eh '+ processed +' e o count '+ count);
+
+
 	  				if(!processed && count == total){
-						console.log('entrei aqui para salvar')
+
 	  					processed  = true;
 	  					scan.save((err) => {
-							console.log('salvei');
+
 	  						if(err){
 	  							rej(err);
 	  						}
