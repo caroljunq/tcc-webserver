@@ -95,11 +95,20 @@ module.exports = getData = (period,data) => {
         this.arrayPieLabels = [];
         this.vendors = [];
         let vendors = [];
+        let aux = [];
 
         for(let i = 0; i < registers.length; i++){
             for(let j = 0; j < registers[i].macs.length; j++){
-                vendors.push(registers[i].macs[j].vendor);
+                aux.push(registers[i].macs[j]);
             }
+        }
+
+        //filter elements by attr 'mac'
+        let unique = aux.filter((elem, index, self) => self.findIndex(
+                (t) => {return (t.mac === elem.mac)}) === index)
+
+        for(let j = 0; j < unique.length; j++){
+            vendors.push(unique[j].vendor);
         }
 
         let map = vendors.reduce((prev, cur) => {
