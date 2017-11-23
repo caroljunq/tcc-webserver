@@ -14,7 +14,7 @@ module.exports = prepareData = (fileName,fileText) => {
 		});
 
 		let customers = [];
-
+		console.log(register[1])
 		let aux = [];
 		Scans.find({'zone': register[0], 'day': {$not: register[1]}},function(err, doc){
 			console.log(doc.length);
