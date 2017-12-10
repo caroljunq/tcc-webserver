@@ -3,7 +3,7 @@ const Scans = require('./scan');
 const mongoose = require('mongoose');
 
 module.exports = prepareData = (fileName,fileText) => {
-	console.log('ppreparando')
+	console.log('Preparando dados')
 	return new Promise((res,rej) => {
 		let arr = fileText.split(/\n/);
 
@@ -52,7 +52,7 @@ module.exports = prepareData = (fileName,fileText) => {
 
 			for(let i = 0; i < total; i++){
 				request("http://api.macvendors.com/"+macs[i], (error, response, body) => {
-					console.log('aqui')
+					console.log('Vendor n'+i)
 					let seller;
 					if(error){
 						seller = 'not-found'
@@ -77,7 +77,7 @@ module.exports = prepareData = (fileName,fileText) => {
 
 	  					processed  = true;
 	  					scan.save((err) => {
-	  						console.log('salvei')
+	  						console.log('salvei dados')
 	  						if(err){
 	  							rej(err);
 	  						}
